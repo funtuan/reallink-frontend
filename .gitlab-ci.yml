@@ -1,0 +1,41 @@
+variables:
+  AWS_DEFAULT_OUTPUT: JSON
+  APP_NAME: mamma-mia-frontend
+
+publish-prod:
+  only:
+    - master
+  image: 
+    name: amazon/aws-cli
+    entrypoint: [""]
+  services:
+    - docker:dind
+  before_script:
+    - amazon-linux-extras install docker
+    - aws --version
+    - docker --version
+  script:
+    - export VERSION=$(cat package.json | grep version | head -1 | awk -F= "{ print $2 }" | sed 's/[version:,\",]//g' | tr -d '[[:space:]]')
+    - docker build -t $DOCKER_REGISTRY/$APP_NAME -t $DOCKER_REGISTRY/$APP_NAME:$VERSION .
+    - aws ecr get-login-password | docker login --username AWS --password-stdin $DOCKER_REGISTRY
+    - docker push $DOCKER_REGISTRY/$APP_NAME:$VERSION
+    - docker push $DOCKER_REGISTRY/$APP_NAME
+
+publish-dev:
+  only:
+    - dev
+  image: 
+    name: amazon/aws-cli
+    entrypoint: [""]
+  services:
+    - docker:dind
+  before_script:
+    - amazon-linux-extras install docker
+    - aws --version
+    - docker --version
+  script:
+    - export VERSION=$(cat package.json | grep version | head -1 | awk -F= "{ print $2 }" | sed 's/[version:,\",]//g' | tr -d '[[:space:]]')
+    - docker build -t $DOCKER_REGISTRY/$APP_NAME-dev -t $DOCKER_REGISTRY/$APP_NAME-dev:$VERSION .
+    - aws ecr get-login-password | docker login --username AWS --password-stdin $DOCKER_REGISTRY
+    - docker push $DOCKER_REGISTRY/$APP_NAME-dev:$VERSION
+    - docker push $DOCKER_REGISTRY/$APP_NAME-dev

@@ -1,0 +1,9 @@
+version: '3.1'
+services:
+  mamma-mia-frontend:
+    image: mamma-mia-frontend
+    build: .
+    environment:
+      - VUE_APP_BACKEND_HOST=http://localhost:1337
+    ports:
+    - "8093:80"
