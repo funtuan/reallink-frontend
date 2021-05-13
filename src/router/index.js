@@ -16,6 +16,16 @@ const routes = [
     component: () => import('../views/About.vue')
   },
   {
+    path: '/contact',
+    name: 'Contact',
+    component: () => import('../views/Contact.vue')
+  },
+  {
+    path: '/contributes',
+    name: 'Contributes',
+    component: () => import('../views/Contributes.vue')
+  },
+  {
     path: '/download',
     name: 'Download',
     component: () => import('../views/QRCode/Download.vue')
