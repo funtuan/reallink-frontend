@@ -18,8 +18,6 @@ export default (name) => {
     const envValue = process.env[envName]
     if (envValue) {
       return envValue
-    } else {
-
     }
   } else {
     return value
