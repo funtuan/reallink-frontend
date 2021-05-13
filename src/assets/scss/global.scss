@@ -1,0 +1,144 @@
+// ==== Colors ==== //
+$primary-green: #b5c02c;
+$primary-black: #2d271b;
+$primary-blue: #2bb8c1;
+$primary-grey: #767676;
+$secondary-grey: #aeaeae;
+$tertiary-grey: #f4f4f4;
+$bg-grey: #fbfbfb;
+
+
+// ==== Colors - Status ==== //
+$invalid: #d8749c;
+$complete: #bbabe3;
+$activity: #fa6c6c;
+
+// ==== Radius ==== //
+$section-radius: 12px;
+$primary-radius: 12px;
+
+// ==== Button ==== //
+._primary-btn {
+  background-color: $primary-green;
+  color: white !important;
+  border-radius: 10px;
+  border: none;
+}
+
+._normal-btn {
+  border-radius: 10px;
+  background-color: $tertiary-grey;
+  color: $primary-grey;
+  border: none;
+}
+
+._next-btn {
+  width: calc(100% - 20px);
+  height: 40px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  color: white;
+  background-color: $primary-green;
+}
+
+
+// ==== Section ==== //
+._section {
+  margin-bottom: 20px;
+}
+
+._section-title {
+  color: $primary-black;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+// ==== Input ==== //
+._primary-input{
+  border: solid 1px grey;
+  border-radius: 3px;
+  height: 44px;
+  font-size: 14px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+._selector{
+  height: 30px !important;
+}
+
+
+// ==== Title ==== //
+._main-title {
+  color: $primary-blue;
+  font-size: 24px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+
+
+// ==== Content ==== //
+._text-sm {
+  font-size: 12px;
+}
+
+._card-content {
+  font-size: 12px;
+  color: $primary-grey;
+  white-space:pre-wrap;
+}
+
+
+// ==== Layout ==== //
+._flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+._flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+._flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
+._flex-col-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+// ==== Container ==== //
+._card {
+  border-radius: 5px;
+  background: $tertiary-grey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+
+
+.px-5 {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.pa-2 {
+  padding: 10px;
+}
+
+.pa-5 {
+  padding: 10px;
+}
+
+.pages{
+  padding-bottom: 40px;
+}
