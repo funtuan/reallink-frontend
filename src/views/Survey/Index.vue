@@ -6,13 +6,13 @@
       <span>COVID-19防疫調查表(含健康旅遊史)</span>
       <p class="">身體健康，且一個月內無出國史</p>
       <div class="button-group">
-        <el-button plain class="_normal-btn">有</el-button>
-        <el-button plain class="_primary-btn">無</el-button>
+        <el-button plain class="_normal-btn" @click="surveyForm.healthly = true">有</el-button>
+        <el-button plain class="_primary-btn" @click="surveyForm.healthly = false">無</el-button>
       </div>
     </section>
 
 
-    <section class="_section" v-if="!isHealthly">
+    <section class="_section" v-if="!surveyForm.healthly">
       <p class="_section-title">1.最近一個月是否出現下述症狀</p>
       <el-checkbox-group class="_flex-col" v-model="surveyForm.symptom">
         <el-checkbox label="無"></el-checkbox>
@@ -32,7 +32,7 @@
       </el-date-picker>
     </section>
 
-    <section class="_section" v-if="!isHealthly">
+    <section class="_section" v-if="!surveyForm.healthly">
       <p class="_section-title">2.最近一個月是否有出國旅遊/接觸史(含轉機)</p>
       <el-checkbox-group class="_flex-col" v-model="surveyForm.diseases">
         <el-checkbox label="否"></el-checkbox>

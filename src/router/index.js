@@ -23,7 +23,12 @@ const routes = [
   {
     path: '/survey',
     name: 'Survey',
-    component: () => import('../views/Survey/Index.vue')
+    component: () => import('../views/Survey/Index.vue'),
+  },
+  {
+    path: '/complete',
+    name: 'Complete',
+    component: () => import('../views/Survey/Complete.vue')
   }
 ]
 
