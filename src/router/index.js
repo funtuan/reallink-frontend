@@ -16,7 +16,7 @@ const routes = [
     component: () => import('../views/QRCode/Download.vue')
   },
   {
-    path: '/i-bon',
+    path: '/ibon',
     name: 'Ibon',
     component: () => import('../views/QRCode/Ibon.vue')
   },

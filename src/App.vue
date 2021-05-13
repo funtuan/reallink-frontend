@@ -23,5 +23,10 @@ html, body, #app {
   margin: 0;
 }
 
+#app {
+  max-width: 400px;
+  margin: auto;
+}
+
 
 </style>

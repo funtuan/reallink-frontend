@@ -57,6 +57,10 @@ $primary-radius: 12px;
 }
 
 
+.dash-divde {
+  border: 1px grey dashed;
+}
+
 // ==== Section ==== //
 ._section {
   margin-bottom: 20px;
@@ -85,10 +89,8 @@ $primary-radius: 12px;
 
 
 // ==== Title ==== //
-._main-title {
-  color: $primary-blue;
-  font-size: 24px;
-  font-family: 'Noto Sans TC', sans-serif;
+.main-title {
+  color: $primary-green;
 }
 
 

@@ -20,7 +20,7 @@
       class="_next-btn"
       @click="send"
     >
-      產生ibon列印條碼
+      下載文宣PDF
     </el-button>
 
   </div>
@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .qrcode-container {
   background: $tertiary-grey;
   border-radius: $primary-radius;

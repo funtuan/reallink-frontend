@@ -71,7 +71,3 @@ export default {
   })
 };
 </script>
-
-<style lang="scss">
-@import url("/assets/scss/global.scss");
-</style>

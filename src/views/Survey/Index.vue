@@ -126,9 +126,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-@import url("/assets/scss/global.scss");
-</style>
+
 <style scoped lang="scss">
 .terms-content {
   color: $primary-grey;
