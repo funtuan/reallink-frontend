@@ -1,6 +1,6 @@
 <template>
   <div class="about pages pa-5">
-    <el-carousel indicator-position="outside" height="240px" :interval="6000" @change="changeSection">
+    <el-carousel indicator-position="outside" height="240px" :interval="5000" @change="changeSection">
       <el-carousel-item v-for="img in imgName" :key="img">
         <div class="test">
           <img :src="`./img/${img}.svg`" alt="" />

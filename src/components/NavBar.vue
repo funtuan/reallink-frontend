@@ -1,12 +1,12 @@
 <template>
   <div class="nav-bar">
     <div class="nav-btn-container">
-      <span class="nav-btn" :class="{active: isRoute('about')}">關於</span>
-      <span class="nav-btn" :class="{active: isRoute('contact')}">疫調聯絡</span>
-      <span class="nav-btn" :class="{active: isRoute('developers')}">貢獻者介紹</span>
+      <span class="nav-btn" @click="routeTo('/about')" :class="{active: routeName === 'About'}">關於</span>
+      <span class="nav-btn" @click="routeTo('/contact')" :class="{active: routeName === 'Contact'}">疫調聯絡</span>
+      <span class="nav-btn" @click="routeTo('/contributes')" :class="{active: routeName === 'Contributes'}">貢獻者介紹</span>
     </div>
 
-    <el-button class="_primary-btn register-btn">
+    <el-button class="_primary-btn register-btn" @click="register">
       店家申請
     </el-button>
   </div>
@@ -15,10 +15,18 @@
 <script>
 export default {
   name: 'NavBar',
+  computed: {
+    routeName () {
+      return this.$route.name
+    }
+  },
   methods: {
-    isRoute(name) {
-      const curRoute = this.$route.name
-      if(curRoute === name) return true
+    routeTo(name) {
+      this.$router.push(name)
+    },
+
+    register() {
+      this.$router.push('/shop-signup')
     }
   }
 }
@@ -28,6 +36,11 @@ export default {
 .nav-bar {
   width: 100%;
   height: 60px;
+  background: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
   padding: 10px;
   box-sizing: border-box;
