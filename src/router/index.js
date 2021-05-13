@@ -11,9 +11,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
+    path: '/download',
+    name: 'Download',
+    component: () => import('../views/QRCode/Download.vue')
+  },
+  {
+    path: '/ibon',
+    name: 'Ibon',
+    component: () => import('../views/QRCode/Ibon.vue')
   },
   {
     path: '/terms',
@@ -23,7 +28,17 @@ const routes = [
   {
     path: '/survey',
     name: 'Survey',
-    component: () => import('../views/Survey/Index.vue')
+    component: () => import('../views/Survey/Index.vue'),
+  },
+  {
+    path: '/complete',
+    name: 'Complete',
+    component: () => import('../views/Survey/Complete.vue')
+  },
+  {
+    path: '/shop-signup',
+    name: 'ShopSignup',
+    component: () => import('../views/ShopSignup/Index.vue')
   }
 ]
 

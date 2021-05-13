@@ -1,14 +1,15 @@
 <template>
   <div id="app">
+    <NavBar />
     <router-view/>
-    
   </div>
 </template>
 
 <script>
-
+import NavBar from '@/components/NavBar'
 export default {
   name: 'App',
+  components: {NavBar},
 
   data: () => ({
     //
@@ -21,6 +22,11 @@ html, body, #app {
   height: 100%;
   padding: 0;
   margin: 0;
+}
+
+#app {
+  max-width: 400px;
+  margin: auto;
 }
 
 

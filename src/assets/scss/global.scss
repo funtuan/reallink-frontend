@@ -33,6 +33,7 @@ $primary-radius: 12px;
 }
 
 ._next-btn {
+  margin: 0 !important;
   width: calc(100% - 20px);
   height: 40px;
   position: fixed;
@@ -43,6 +44,22 @@ $primary-radius: 12px;
   background-color: $primary-green;
 }
 
+._update-btn {
+  margin: 0 !important;
+  width: calc(100% - 20px);
+  height: 40px;
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+  left: 10px;
+  color: $primary-green;
+  border: $primary-green solid 1px;
+}
+
+
+.dash-divde {
+  border: 1px grey dashed;
+}
 
 // ==== Section ==== //
 ._section {
@@ -72,10 +89,8 @@ $primary-radius: 12px;
 
 
 // ==== Title ==== //
-._main-title {
-  color: $primary-blue;
-  font-size: 24px;
-  font-family: 'Noto Sans TC', sans-serif;
+.main-title {
+  color: $primary-green;
 }
 
 
