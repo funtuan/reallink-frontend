@@ -1,9 +1,10 @@
 <template>
   <div class="terms pa-5 pages">
     <ShopInfo class="_section" v-if="isCustomer" />
+    <p>店家申請</p>
 
     <section class="_section">
-      <p class="_section-title">法律條文</p>
+      <p class="_section-title">{{isCustomer? 法律條文 : 各項條款}}</p>
       <div class="terms-content pa-5">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus provident impedit illum sint incidunt deleniti commodi laborum, autem nihil minus aliquam at nulla quo! Delectus dolor tempore reprehenderit vitae possimus?
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eum reiciendis quod deleniti iste, esse, laudantium sint hic beatae nihil deserunt quam sed, sit corporis. Hic corrupti illo nesciunt ipsam!

@@ -29,6 +29,11 @@ const routes = [
     path: '/complete',
     name: 'Complete',
     component: () => import('../views/Survey/Complete.vue')
+  },
+  {
+    path: '/shop-signup',
+    name: 'ShopSignup',
+    component: () => import('../views/ShopSignup/Index.vue')
   }
 ]
 
