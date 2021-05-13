@@ -48,7 +48,9 @@
       <el-input v-model="signupForm.email" placeholder="負責人E-mail"></el-input>
     </section>
 
-    <el-button plain class="_next-btn">送出</el-button>
+    <div class="_bottom-box">
+      <el-button plain class="_next-btn">送出</el-button>
+    </div>
   </div>
 </template>
 

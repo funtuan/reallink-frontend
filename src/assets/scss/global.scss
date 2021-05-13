@@ -32,26 +32,41 @@ $primary-radius: 12px;
   border: none;
 }
 
-._next-btn {
-  margin: 0 !important;
-  width: calc(100% - 20px);
-  height: 40px;
+._bottom-box {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-  left: 10px;
+  height: 60px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+._bottom-box-two {
+  position: fixed;
+  height: 110px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+}
+
+._next-btn {
+  position: relative;
+  width: calc(100% - 26px);
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 13px;
+  position: fixed;
   color: white;
   background-color: $primary-green;
 }
 
 ._update-btn {
-  margin: 0 !important;
-  width: calc(100% - 20px);
+  position: relative;
+  width: calc(100% - 26px);
   height: 40px;
-  position: fixed;
-  bottom: 60px;
-  right: 10px;
-  left: 10px;
+  margin-top: 10px;
+  margin-left: 13px;
   color: $primary-green;
   border: $primary-green solid 1px;
 }
@@ -63,13 +78,18 @@ $primary-radius: 12px;
 
 // ==== Section ==== //
 ._section {
-  margin-bottom: 20px;
+  margin-bottom: 6px;
 }
 
 ._section-title {
   color: $primary-black;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
   margin-bottom: 10px;
+}
+
+.el-form-item__content {
+  line-height: 20px !important;
 }
 
 ._section-sub-title {
@@ -143,7 +163,7 @@ $primary-radius: 12px;
 }
 
 .pa-5 {
-  padding: 10px;
+  padding: 13px;
 }
 
 .pages{

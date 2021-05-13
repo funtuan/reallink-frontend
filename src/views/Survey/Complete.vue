@@ -48,22 +48,24 @@
       </el-time-select>
     </section>
 
-    <el-button 
-      plain 
-      class="_update-btn"
-      @click="updateUserData"
-      v-if="filled"
-    >
-      更新資訊
-    </el-button>
+    <div class="_bottom-box-two">
+      <el-button 
+        plain 
+        class="_update-btn"
+        @click="updateUserData"
+        v-if="filled"
+      >
+        更新資訊
+      </el-button>
 
-    <el-button 
-      plain 
-      class="_next-btn"
-      @click="send"
-    >
-      關閉
-    </el-button>
+      <el-button 
+        plain 
+        class="_next-btn"
+        @click="send"
+      >
+        關閉
+      </el-button>
+    </div>
   </div>
 </template>
 
@@ -73,7 +75,7 @@ export default {
   name: 'Complete',
   components: { ShopInfo },
   data: ()=> ({
-    filled: false,
+    filled: true,
     selectTime: new Date(),
     selectPeopleNum: 1,
     peopleNumberOptions: []

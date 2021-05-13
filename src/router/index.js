@@ -36,7 +36,7 @@ const routes = [
     component: () => import('../views/QRCode/Ibon.vue')
   },
   {
-    path: '/terms/:code',
+    path: '/t/:code',
     name: 'Terms',
     component: () => import('../views/Terms/Index.vue')
   },

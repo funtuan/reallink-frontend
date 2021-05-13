@@ -10,13 +10,14 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "dayjs": "^1.10.4",
     "element-ui": "^2.15.1",
+    "local-storage": "^2.0.0",
     "qrcode": "^1.4.4",
     "qrcode.vue": "^1.7.0",
     "vue": "^2.6.11",
     "vue-html2pdf": "^1.8.0",
     "vue-qrcode": "^0.4.0",
-    "local-storage": "^2.0.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },

@@ -42,7 +42,7 @@ export default {
   right: 0;
   left: 0;
   display: flex;
-  padding: 10px;
+  padding: 10px 13px 10px 13px;
   box-sizing: border-box;
   justify-content: space-between;
   box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.1);
@@ -53,7 +53,7 @@ export default {
   cursor: pointer;
   color: $primary-grey;
   padding-bottom: 20px;
-  
+  font-size: 14px;
 }
 
 .nav-btn-container {
