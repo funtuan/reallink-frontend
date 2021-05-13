@@ -2,14 +2,21 @@
   <div class="download pages pa-5">
     <ShopInfo class="_section" />
 
-    <div class="qrcode-container">
-      <VueQrcode class="qrcode" value="https://www.1stg.me"/>
-      <div class="qrcode-link">實名制問卷連結</div>
-    </div>
+    <section class="_section">
+      <p class="_section-sub-title">步驟一</p>
+      <div>點擊下載文宣PDF或產生ibon列印條碼，將製作好的文宣列印出來</div>
+    </section>
+    
+    <hr>
+
+    <section class="_section">
+      <p class="_section-sub-title">步驟二</p>
+      <div>宣導來店民眾掃描QR code填寫<span class="highlight">加密型實名制登記</span>，配合政府政策，一起落實防疫工作</div>
+    </section>
 
     <el-button 
       plain 
-      class="_update-btn"
+      class="_update-btn" 
       @click="updateUserData"
     >
       下載文宣PDF
@@ -20,7 +27,7 @@
       class="_next-btn"
       @click="send"
     >
-      下載文宣PDF
+      產生ibon列印條碼
     </el-button>
 
   </div>
@@ -28,10 +35,10 @@
 
 <script>
 import ShopInfo from "@/components/ShopInfo"
-import VueQrcode from 'vue-qrcode'
+// import VueQrcode from 'vue-qrcode'
 export default {
   name: 'Download',
-  components: { ShopInfo, VueQrcode },
+  components: { ShopInfo },
 }
 </script>
 
@@ -42,18 +49,7 @@ export default {
   text-align: center;
 }
 
-.qrcode {
-  // max-width: 50%;
-  width: 50%;
-  margin: 20px; 
-}
-
-.qrcode-link {
-  cursor: pointer;
-  color: white;
-  padding: 20px;
-  border-bottom-right-radius: $primary-radius;
-  border-bottom-left-radius:  $primary-radius;
-  background: $primary-green;
+.highlight {
+  color: $primary-green;
 }
 </style>

@@ -29,6 +29,10 @@ html, body, #app {
   margin: auto;
 }
 
+hr {
+  border: dashed 1px $secondary-grey;
+}
+
 .el-input {
   // border: solid 1.5px $primary-green;
   border-radius: 12px;

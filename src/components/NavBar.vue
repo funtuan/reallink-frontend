@@ -1,9 +1,9 @@
 <template>
   <div class="nav-bar">
     <div class="nav-btn-container">
-      <span class="nav-btn" @click="routeTo('/about')" :class="{active: routeName === 'About'}">關於</span>
-      <span class="nav-btn" @click="routeTo('/contact')" :class="{active: routeName === 'Contact'}">疫調聯絡</span>
-      <span class="nav-btn" @click="routeTo('/contributes')" :class="{active: routeName === 'Contributes'}">貢獻者介紹</span>
+      <span class="nav-btn" @click="routeTo('/about')" :class="{'active-border': routeName === 'About'}">關於</span>
+      <span class="nav-btn" @click="routeTo('/contact')" :class="{'active-border': routeName === 'Contact'}">疫調聯絡</span>
+      <span class="nav-btn" @click="routeTo('/contributes')" :class="{'active-border': routeName === 'Contributes'}">貢獻者介紹</span>
     </div>
 
     <el-button class="_primary-btn register-btn" @click="register">
@@ -46,6 +46,7 @@ export default {
   box-sizing: border-box;
   justify-content: space-between;
   box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.1);
+  z-index: 99;
 }
 
 .nav-btn {
@@ -68,7 +69,7 @@ export default {
   padding-left: 15px;
 }
 
-.active {
+.active-border {
   border-bottom: $primary-green solid 2px;
 }
 </style>

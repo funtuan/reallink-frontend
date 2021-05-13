@@ -87,7 +87,7 @@
       </div>
     </section>
 
-    <el-button plain class="_next-btn">送出</el-button>
+    <el-button plain class="_next-btn" @click="complete">送出</el-button>
   </div>
 </template>
 
@@ -124,6 +124,10 @@ export default {
         this.peopleNumberOptions.push(i)
       }
       this.peopleNumberOptions.push('10+')
+    },
+
+    complete() {
+      this.$router.push(`/complete/${this.$route.params.code}`)
     }
   },
 

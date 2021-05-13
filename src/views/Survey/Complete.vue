@@ -1,24 +1,27 @@
 <template>
   <div class="complete pages pa-5">
     <div class="lock-icon-view" v-if="!filled">
-      
+      <img src="@/assets/icon/lock.svg" alt="">
       <p>填寫完成，已對資料進行加密</p>
     </div>
     <ShopInfo />
 
-    <section>
-      <p class="_section">姓名</p>
+    <section class="_section">
+      <p class="_section-sub-title">姓名</p>
       <div>空****</div>
+      <hr>
     </section>
 
-    <section>
-      <p class="_section">電話</p>
+    <section class="_section">
+      <p class="_section-sub-title">電話</p>
       <div>0911****11</div>
+      <hr>
     </section>
 
-    <section>
-      <p class="_section">人數</p>
+    <section class="_section">
+      <p class="_section-sub-title">人數</p>
       <div v-if="!filled">6</div>
+      
       <el-select v-if="filled" v-model="selectPeopleNum" placeholder="選擇人數">
         <el-option
           v-for="(people, index) in peopleNumberOptions"
@@ -27,10 +30,11 @@
           :value="people">
         </el-option>
       </el-select>
+      <hr  >
     </section>
 
-    <section>
-      <p class="_section">時間</p>
+    <section class="_section">
+      <p >時間 |</p>
       <div v-if="!filled">19:00</div>
       <el-time-select
         v-if="filled"
@@ -38,7 +42,7 @@
         :picker-options="{
           start: '08:30',
           step: '00:15',
-          end: '18:30'
+          end: '23:30'
         }"
         placeholder="選擇時間">
       </el-time-select>

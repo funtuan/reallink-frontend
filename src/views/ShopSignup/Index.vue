@@ -1,6 +1,6 @@
 <template>
   <div class="shop-signup pages pa-5">
-    <p>店家資料填寫</p>
+    <p class="main-title">店家資料填寫</p>
 
     <section class="_section">
       <p class="_section-title">店家名稱</p>
@@ -9,7 +9,7 @@
 
     <section class="_section">
       <p class="_section-title">店家地址</p>
-      <div class="select-group">
+      <div class="select-group _flex-between">
         <el-select v-model="signupForm.city" placeholder="選擇縣市">
           <el-option
             v-for="(city, index) in cities"
@@ -29,8 +29,8 @@
           >
           </el-option>
         </el-select>
-        <el-input v-model="signupForm.address" placeholder="詳細地址"></el-input>
       </div>
+      <el-input v-model="signupForm.address" placeholder="詳細地址"></el-input>
     </section>
 
     <section class="_section">
@@ -71,3 +71,8 @@ export default {
   })
 };
 </script>
+
+
+<style lang="scss">
+@import url('/assets/scss/global.scss');
+</style>

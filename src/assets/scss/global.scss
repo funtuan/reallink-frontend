@@ -70,17 +70,14 @@ $primary-radius: 12px;
   color: $primary-black;
   font-size: 16px;
   margin-bottom: 10px;
-  font-family: 'Noto Sans TC', sans-serif;
 }
 
-// ==== Input ==== //
-
-
-
-
-._selector{
-  height: 30px !important;
+._section-sub-title {
+  color: $secondary-grey;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
+
 
 
 // ==== Title ==== //
@@ -152,4 +149,9 @@ $primary-radius: 12px;
 .pages{
   padding-top: 80px;
   padding-bottom: 40px;
+}
+
+.active {
+  color: white;
+  background: $primary-green;
 }

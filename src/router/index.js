@@ -46,7 +46,7 @@ const routes = [
     component: () => import('../views/Survey/Index.vue'),
   },
   {
-    path: '/complete',
+    path: '/complete/:code',
     name: 'Complete',
     component: () => import('../views/Survey/Complete.vue')
   },

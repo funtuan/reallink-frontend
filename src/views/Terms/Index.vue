@@ -1,10 +1,10 @@
 <template>
   <div class="terms pa-5 pages">
     <ShopInfo class="_section" v-if="isCustomer" />
-    <p>店家申請</p>
+    <p v-if="!isCustomer">店家申請</p>
 
     <section class="_section">
-      <p class="_section-title">{{isCustomer? 法律條文 : 各項條款}}</p>
+      <p class="_section-title">{{isCustomer? '法律條文' : '各項條款'}}</p>
       <div class="terms-content pa-5">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus provident impedit illum sint incidunt deleniti commodi laborum, autem nihil minus aliquam at nulla quo! Delectus dolor tempore reprehenderit vitae possimus?
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam eum reiciendis quod deleniti iste, esse, laudantium sint hic beatae nihil deserunt quam sed, sit corporis. Hic corrupti illo nesciunt ipsam!
@@ -33,8 +33,8 @@
     <section class="_section" v-if="isCustomer">
       <p class="_section-title">是否同意授權</p>
       <div class="button-group">
-        <el-button plain class="_normal-btn">不同意</el-button>
-        <el-button plain class="_primary-btn">同意</el-button>
+        <el-button plain class="_normal-btn" :class="{active : !agree}" @click="agree = false">不同意</el-button>
+        <el-button plain class="_normal-btn" :class="{active : agree}" @click="agree = true">同意</el-button>
       </div>
     </section>
 
@@ -56,11 +56,12 @@ export default {
   data: () => ({
     isCustomer: true,
     termsContent: null,
+    agree: true,
   }),
 
   methods: {
     goSurvey() {
-      this.$router.push('/survey')
+      this.$router.push(`/survey/${this.$route.params.code}`)
     }
   }
 }
@@ -76,5 +77,7 @@ export default {
   border-radius: $section-radius;
   text-align: justify;
 }
+
+
 
 </style>
