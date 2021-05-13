@@ -11,6 +11,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/about',
+    name: 'About',
+    component: () => import('../views/About.vue')
+  },
+  {
     path: '/download',
     name: 'Download',
     component: () => import('../views/QRCode/Download.vue')
@@ -21,12 +26,12 @@ const routes = [
     component: () => import('../views/QRCode/Ibon.vue')
   },
   {
-    path: '/terms',
+    path: '/terms/:code',
     name: 'Terms',
     component: () => import('../views/Terms/Index.vue')
   },
   {
-    path: '/survey',
+    path: '/survey/:code',
     name: 'Survey',
     component: () => import('../views/Survey/Index.vue'),
   },
