@@ -18,6 +18,7 @@ export default {
 </script>
 <style lang="scss">
 html, body, #app {
+  font-family: 'Noto Sans TC';
   width: 100%;
   height: 100%;
   padding: 0;

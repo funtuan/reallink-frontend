@@ -4,17 +4,17 @@
 
     <section class="_section qrcode-section">
       <div class="qrcode-container">
-        <VueQrcode class="qrcode" value="https://www.1stg.me" />
+        <QrcodeVue class="qrcode" :value="$route.params.code" size="200" />
       </div>
     </section>
 
     <section class="_section">
-      <div class="title">取件編號</div>
-      <div class="content code-num">2173117710</div>
+      <div class="i-bon-title">取件編號</div>
+      <div class="content code-num">{{$route.params.code}}</div>
       <DashedLine />
     </section>
     <section class="_section">
-      <div class="title">注意事項</div>
+      <div class="i-bon-title">注意事項</div>
       <div class="notice-content">
         ※ 請記下您的「取件編號」或是「取件QR
         Code」，請於三天內至全台7-ELEVEN門市 ibon進行文件下載及櫃檯繳費。
@@ -27,10 +27,10 @@
 
 <script>
 import DashedLine from '@/components/DashedLine'
-import VueQrcode from "vue-qrcode";
+import QrcodeVue from 'qrcode.vue'
 export default {
   name: "Ibon",
-  components: { VueQrcode, DashedLine }
+  components: { QrcodeVue, DashedLine }
 };
 </script>
 <style lang="scss">
@@ -48,8 +48,9 @@ export default {
   
   .qrcode {
     // max-width: 50%;
-    width: 50%;
-    margin: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: auto;
   }
   
   .qrcode-link {
@@ -71,11 +72,18 @@ export default {
 .notice-content {
   color: $secondary-grey;
   margin-bottom: 10px;
+  font-size: 12px;
 }
 
-
+.i-bon-title{
+  color: $secondary-grey;
+  font-weight: 500;
+  font-size: 12px;
+}
 
 .code-num {
   color: red;
+  font-weight: 500;
+  font-size: 16px;
 }
 </style>
