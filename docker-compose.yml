@@ -1,7 +1,6 @@
 version: '3.1'
 services:
-  mamma-mia-frontend:
-    image: mamma-mia-frontend
+  reallink-frontend:
     build: .
     environment:
       - VUE_APP_BACKEND_HOST=http://localhost:1337
