@@ -85,7 +85,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import url('/assets/scss/global.scss');
 
 </style>
 <style scoped lang="scss">
