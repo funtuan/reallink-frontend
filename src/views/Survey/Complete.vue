@@ -7,22 +7,22 @@
     <ShopInfo />
 
     <section class="_section">
-      <p class="_section-sub-title">姓名</p>
-      <div>空****</div>
-      <hr>
+      <div class="title">姓名</div>
+      <div class="content">空****</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
-      <p class="_section-sub-title">電話</p>
-      <div>0911****11</div>
-      <hr>
+      <div class="title">電話</div>
+      <div class="content">0911****11</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
-      <p class="_section-sub-title">人數</p>
-      <div v-if="!filled">6</div>
+      <div class="title">人數</div>
+      <div v-if="!filled" class="content">6</div>
       
-      <el-select v-if="filled" v-model="selectPeopleNum" placeholder="選擇人數">
+      <el-select v-if="filled" v-model="selectPeopleNum" placeholder="選擇人數" class="content">
         <el-option
           v-for="(people, index) in peopleNumberOptions"
           :key="`option-${index}`"
@@ -30,11 +30,11 @@
           :value="people">
         </el-option>
       </el-select>
-      <hr  >
+      <DashedLine />
     </section>
 
     <section class="_section">
-      <p >時間 |</p>
+      <div class="time">時間 |</div>
       <div v-if="!filled">19:00</div>
       <el-time-select
         v-if="filled"
@@ -70,10 +70,11 @@
 </template>
 
 <script>
+import DashedLine from '@/components/DashedLine'
 import ShopInfo from '@/components/ShopInfo'
 export default {
   name: 'Complete',
-  components: { ShopInfo },
+  components: { ShopInfo, DashedLine },
   data: ()=> ({
     filled: true,
     selectTime: new Date(),
@@ -103,9 +104,16 @@ export default {
   text-align: center;
 }
 
-// .dash-input {
-//   border: 5px solid transparent;
-//   background: linear-gradient(white,white) padding-box,
-//   repeating-linear-gradient(-45deg,#ccc 0, #ccc 0.5em,white 0,white 0.75em);
-// }
+.title {
+  color: $secondary-grey;
+}
+
+.content {
+    color: $primary-grey;
+    padding: 10px 0;
+}
+
+.time {
+  margin-bottom: 10px;
+}
 </style>

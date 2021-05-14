@@ -9,25 +9,25 @@
     </section>
 
     <section class="_section">
-      <p class="_section-title info-title">取件編號</p>
-      <p class="info-content code-num">2173117710</p>
-      <hr class="dash-divde">
+      <div class="title">取件編號</div>
+      <div class="content code-num">2173117710</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
-      <p class="_section-title info-title">文件上傳日期</p>
-      <p class="info-content">2021/05/12 17:31:17</p>
-      <hr class="dash-divde">
+      <div class="title">文件上傳日期</div>
+      <div class="content">2021/05/12 17:31:17</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
-      <p class="_section-title info-title">文件列印期限</p>
-      <p class="info-content">2021/05/15 17:31:17</p>
-      <hr class="dash-divde">
+      <div class="title">文件列印期限</div>
+      <div class="content">2021/05/15 17:31:17</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
-      <p class="_section-title notice-title">注意事項</p>
+      <div class="title">注意事項</div>
       <div class="notice-content">
         ※ 請記下您的文件列印期限及「取件編號」或是「取件QR
         Code」，於有效期間內至全台7-ELEVEN門市 ibon進行文件下載及櫃檯繳費。
@@ -35,18 +35,20 @@
         檔案搬移需要5分鐘作業時間，可於取件前先以取件編號查詢，確認檔案是否上傳成功！
       </div>
     </section>
-
-    <el-button plain class="_next-btn" @click="send">
-      下載文宣PDF
-    </el-button>
+    <div class="_bottom-box">
+      <el-button plain class="_next-btn" @click="send">
+        下載文宣PDF
+      </el-button>
+    </div>
   </div>
 </template>
 
 <script>
+import DashedLine from '@/components/DashedLine'
 import VueQrcode from "vue-qrcode";
 export default {
   name: "Ibon",
-  components: { VueQrcode }
+  components: { VueQrcode, DashedLine }
 };
 </script>
 <style lang="scss">
@@ -79,11 +81,20 @@ export default {
   color: red;
 }
 
-.info-content {
+.content {
   font-size: 18px;
 }
 
-.info-title, .notice-title, .notice-content {
+.notice-content {
   color: $secondary-grey;
+}
+
+.title {
+  color: $secondary-grey;
+}
+
+.content {
+    color: $primary-grey;
+    padding: 10px 0;
 }
 </style>

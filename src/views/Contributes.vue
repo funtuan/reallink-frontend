@@ -4,25 +4,28 @@
 
     <section class="_section">
       <div class="work-type">FrontEnd Developer</div>
-      <div>Proladon</div>
+      <div class="contributor">Proladon</div>
       <div>https://github.com/Proladon</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
       <div class="work-type">FrontEnd Developer</div>
-      <div>Proladon</div>
+      <div class="contributor">Proladon</div>
       <div>https://github.com/Proladon</div>
+      <DashedLine />
     </section>
 
     <section class="_section">
       <div class="work-type">FrontEnd Developer</div>
-      <div>Proladon</div>
+      <div class="contributor">Proladon</div>
       <div>https://github.com/Proladon</div>
+      <DashedLine />
     </section>
 
     <p class="main-title ">贊助公司</p>
     <section class="_section">
-      <div>思言科技股份有限公司</div>
+      <div class="contributor">思言科技股份有限公司</div>
       <img src="/img/ohbot.svg" alt="">
     </section>
 
@@ -30,8 +33,10 @@
 </template>
 
 <script>
+import DashedLine from '@/components/DashedLine'
 export default {
   name: "Contributes",
+  components: {DashedLine},
   data: () => ({
   }),
   methods: {
@@ -56,5 +61,13 @@ export default {
 
 .work-type {
     color: $primary-grey;
+}
+
+.contributor {
+  padding: 5px 0;
+}
+
+img {
+  padding-top: 10px;
 }
 </style>
