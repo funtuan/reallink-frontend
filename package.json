@@ -13,6 +13,7 @@
     "dayjs": "^1.10.4",
     "element-ui": "^2.15.1",
     "local-storage": "^2.0.0",
+    "node-rsa": "^1.1.1",
     "qrcode": "^1.4.4",
     "qrcode.vue": "^1.7.0",
     "vue": "^2.6.11",

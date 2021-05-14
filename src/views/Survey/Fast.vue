@@ -5,13 +5,13 @@
 
     <section class="_section">
       <div class="title">姓名</div>
-      <div class="content">空****</div>
+      <div class="content">{{surveyForm.name}}</div>
       <DashedLine />
     </section>
 
     <section class="_section">
       <div class="title">電話</div>
-      <div class="content">0911****11</div>
+      <div class="content">{{surveyForm.phone}}</div>
       <DashedLine />
     </section>
 
@@ -30,10 +30,11 @@
     </section>
 
     <section class="_section">
-      <div class="time">時間 |</div>
+      <div class="title">時間 |{{showToDay}}</div>
+      <div style="height: 5px;"></div>
       <el-time-select
         style="width: 100%;"
-        v-model="selectTime"
+        v-model="surveyForm.fillTime"
         :picker-options="{
           start: '08:30',
           step: '00:15',
@@ -66,6 +67,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import ls from 'local-storage'
+import dayjs from 'dayjs'
 import DashedLine from '@/components/DashedLine'
 import ShopInfo from '@/components/ShopInfo'
 export default {
@@ -82,7 +84,10 @@ export default {
     ...mapState([
       'shop',
       'info',
-    ])
+    ]),
+    showToDay() {
+      return dayjs(this.surveyForm.toDay).format('YYYY.MM.DD')
+    }
   },
 
   methods: {
@@ -100,8 +105,8 @@ export default {
       ls.remove('survey')
       this.$router.push(`/t/${this.$route.params.code}`)
     },
-    send () {
-      this.SetInfo({
+    async send () {
+      await this.SetInfo({
         code: this.$route.params.code,
         ...this.surveyForm,
       })
@@ -125,10 +130,11 @@ export default {
   mounted () {
     if (ls.get('survey')) {
       this.surveyForm = ls.get('survey')
+      this.surveyForm.fillTime = this.getNowTime()
+      this.surveyForm.day = dayjs().format('YYYY-MM-DD')
     } else {
       this.$router.push(`/t/${this.$route.params.code}`)
     }
-    this.selectTime = this.getNowTime()
     this.CheckShop(this.$route.params.code)
     this.genPeopleNumberOptions()
   }

@@ -25,7 +25,7 @@
     </section>
 
     <section class="_section">
-      <div class="title">時間 |{{showToDay}}</div>
+      <div class="title">時間 |{{info.day}}</div>
       <div class="content">{{info.fillTime}}</div>
       <DashedLine />
     </section>
@@ -44,7 +44,6 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import dayjs from 'dayjs';
 import DashedLine from '@/components/DashedLine'
 import ShopInfo from '@/components/ShopInfo'
 export default {
@@ -60,10 +59,7 @@ export default {
     ...mapState([
       'shop',
       'info',
-    ]),
-    showToDay() {
-      return dayjs(this.info.toDay).format('YYYY.MM.DD')
-    }
+    ])
   },
 
   methods: {

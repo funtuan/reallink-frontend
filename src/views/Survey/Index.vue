@@ -69,7 +69,7 @@
       </section>
 
       <el-form-item  class="_section _flex-col" prop="fillTime">
-        <p class="_section-title">時間｜{{showToDay}}</p>
+        <p class="_section-title">時間｜{{surveyForm.day}}</p>
         <el-time-select
           style="width: 100%;"
           v-model="surveyForm.fillTime"
@@ -112,9 +112,6 @@ export default {
     ...mapState([
       'shop',
     ]),
-    showToDay() {
-      return dayjs(this.surveyForm.toDay).format('YYYY.MM.DD')
-    }
   },
   data: () => ({
     loading: false,
@@ -135,7 +132,7 @@ export default {
       diseasesInfo: null,
       peopleNumber: 1,
       fillTime: null,
-      toDay: new Date()
+      day: dayjs().format('YYYY-MM-DD')
     },
     rules: {
       name: [
@@ -163,12 +160,12 @@ export default {
       this.peopleNumberOptions.push('10+')
     },
     complete() {
-      this.$refs.form.validate(valid => {
+      this.$refs.form.validate(async valid => {
         if (valid) {
           if (this.save) {
             ls.set('survey', this.surveyForm)
           }
-          this.SetInfo({
+          await this.SetInfo({
             code: this.$route.params.code,
             ...this.surveyForm,
           })

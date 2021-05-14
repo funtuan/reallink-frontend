@@ -28,12 +28,10 @@ export const findOne = async (code) => {
 
 export const record = async ({
   code,
-  userId,
   info,
   goAt,
 }) => {
   const res = await axios.post(`${configuration('backendHost')}/api/shop/${code}/record`, {
-    userId,
     info,
     goAt,
   })
