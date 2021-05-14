@@ -113,6 +113,7 @@ export default {
   height: 250px;
   overflow-y: auto;
   font-size: 14px;
+  text-indent: 32px;
 }
 
 

@@ -25,8 +25,8 @@ html, body, #app {
 }
 
 #app {
-  max-width: 400px;
-  margin: 0;
+  max-width: 550px;
+  margin: auto;
   letter-spacing: 2px;
 }
 
