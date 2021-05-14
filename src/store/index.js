@@ -4,10 +4,12 @@ import Vuex from 'vuex'
 import { findOne as shopFindOne } from '@/api/shop';
 
 Vue.use(Vuex)
+import dayjs from 'dayjs';
 
 export default new Vuex.Store({
   state: {
     shop: null,
+    info: null,
   },
   mutations: {
     SET_SHOP: (state, shop) => {
@@ -15,6 +17,9 @@ export default new Vuex.Store({
     },
     CLEAR_SHOP: (state) => {
       state.shop = null
+    },
+    SET_INFO: (state, info) => {
+      state.info = info
     },
   },
   actions: {
@@ -26,6 +31,12 @@ export default new Vuex.Store({
         commit('CLEAR_SHOP')
         commit('SET_SHOP', await shopFindOne(code))
       }
+    },
+    async SetInfo({ commit }, info) {
+      const day = dayjs(info.toDay).format('YYYY-MMM-DD')
+      const goAt = new Date(`${day} ${info.fillTime}`)
+      console.log('goAt', goAt)
+      commit('SET_INFO', info)
     },
   },
   modules: {

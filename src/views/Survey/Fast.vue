@@ -1,80 +1,111 @@
 <template>
   <div class="complete pages pa-5" v-if="shop">
-    <div class="lock-icon-view">
-      <img src="@/assets/icon/lock.svg" alt="">
-      <p class="ok-text">填寫完成，已對資料進行加密</p>
-    </div>
     <ShopInfo class="_section" :shop="shop" />
     <div style="height: 13px;"></div>
+
     <section class="_section">
       <div class="title">姓名</div>
-      <div class="content">{{info.name}}</div>
+      <div class="content">空****</div>
       <DashedLine />
     </section>
 
     <section class="_section">
       <div class="title">電話</div>
-      <div class="content">{{info.phone}}</div>
+      <div class="content">0911****11</div>
       <DashedLine />
     </section>
 
     <section class="_section">
       <div class="title">人數</div>
-      <div class="content">{{info.peopleNumber}}</div>
+      
+      <el-select style="width: 100%;" v-model="selectPeopleNum" placeholder="選擇人數" class="content">
+        <el-option
+          v-for="(people, index) in peopleNumberOptions"
+          :key="`option-${index}`"
+          :label="people"
+          :value="people">
+        </el-option>
+      </el-select>
       <DashedLine />
     </section>
 
     <section class="_section">
-      <div class="title">時間 |{{showToDay}}</div>
-      <div class="content">{{info.fillTime}}</div>
-      <DashedLine />
+      <div class="time">時間 |</div>
+      <el-time-select
+        style="width: 100%;"
+        v-model="selectTime"
+        :picker-options="{
+          start: '08:30',
+          step: '00:15',
+          end: '23:30'
+        }"
+        placeholder="選擇時間">
+      </el-time-select>
     </section>
-<!-- 
-    <div class="_bottom-box">
+
+    <div class="_bottom-box-two">
+      <el-button 
+        plain 
+        class="_update-btn"
+        @click="updateUserData"
+      >
+        重新填寫
+      </el-button><br>
+
       <el-button 
         plain 
         class="_next-btn"
-        @click="close"
+        @click="send"
       >
-        關閉
+        送出
       </el-button>
-    </div> -->
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import dayjs from 'dayjs';
+import ls from 'local-storage'
 import DashedLine from '@/components/DashedLine'
 import ShopInfo from '@/components/ShopInfo'
 export default {
   name: 'Complete',
   components: { ShopInfo, DashedLine },
   data: ()=> ({
-    filled: true,
-    selectTime: new Date(),
+    selectTime: null,
     selectPeopleNum: 1,
-    peopleNumberOptions: []
+    peopleNumberOptions: [],
+    surveyForm: null
   }),
+
   computed: {
     ...mapState([
       'shop',
       'info',
-    ]),
-    showToDay() {
-      return dayjs(this.info.toDay).format('YYYY.MM.DD')
-    }
+    ])
   },
 
   methods: {
     ...mapActions([
       'CheckShop',
+      'SetInfo',
     ]),
     genPeopleNumberOptions () {
       for(let i=1; i <= 10; i++){
         this.peopleNumberOptions.push(i)
       }
       this.peopleNumberOptions.push('10+')
+    },
+    updateUserData() {
+      ls.remove('survey')
+      this.$router.push(`/t/${this.$route.params.code}`)
+    },
+    send () {
+      this.SetInfo({
+        code: this.$route.params.code,
+        ...this.surveyForm,
+      })
+      this.$router.push(`/complete/${this.$route.params.code}`)
     },
     getNowTime () {
       let hour = new Date().getHours()
@@ -89,15 +120,15 @@ export default {
 
       return `${hour}:${min}`
     },
-    close() {
-      this.$router.push(`/`)
-    },
   },
 
   mounted () {
-    if (!this.info || this.info.code !== this.$route.params.code) {
+    if (ls.get('survey')) {
+      this.surveyForm = ls.get('survey')
+    } else {
       this.$router.push(`/t/${this.$route.params.code}`)
     }
+    this.selectTime = this.getNowTime()
     this.CheckShop(this.$route.params.code)
     this.genPeopleNumberOptions()
   }
@@ -124,9 +155,5 @@ export default {
 
 .time {
   margin-bottom: 10px;
-}
-.ok-text {
-  font-size: 16px;
-  color: $primary-green;
 }
 </style>

@@ -1,17 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
     name: 'About',
     component: () => import('../views/About.vue')
   },
@@ -26,12 +20,12 @@ const routes = [
     component: () => import('../views/Contributes.vue')
   },
   {
-    path: '/download',
+    path: '/download/:code',
     name: 'Download',
     component: () => import('../views/QRCode/Download.vue')
   },
   {
-    path: '/ibon',
+    path: '/ibon/:code',
     name: 'Ibon',
     component: () => import('../views/QRCode/Ibon.vue')
   },
@@ -39,6 +33,11 @@ const routes = [
     path: '/t/:code',
     name: 'Terms',
     component: () => import('../views/Terms/Index.vue')
+  },
+  {
+    path: '/shopTerm',
+    name: 'ShopTerms',
+    component: () => import('../views/Terms/Shop.vue')
   },
   {
     path: '/survey/:code',
@@ -49,6 +48,11 @@ const routes = [
     path: '/complete/:code',
     name: 'Complete',
     component: () => import('../views/Survey/Complete.vue')
+  },
+  {
+    path: '/fast/:code',
+    name: 'Fast',
+    component: () => import('../views/Survey/Fast.vue')
   },
   {
     path: '/shop-signup',

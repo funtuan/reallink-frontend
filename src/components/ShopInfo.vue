@@ -1,5 +1,5 @@
 <template>
-  <div class="shop-info _flex-col pa-5" v-if="shop">
+  <div class="shop-info _flex-col pa-5 card" v-if="shop">
     <div class="title-container _flex-between mb-2">
       <span class="shop-code">編號{{shop.code}}</span>
       <img src="@/assets/icon/shop.svg" alt="shop-icon">
@@ -45,5 +45,8 @@ export default {
     font-size: 12px;
     color: $primary-grey;
   }
+}
+.card {
+  padding: 8px 12px !important;
 }
 </style>

@@ -26,7 +26,8 @@ html, body, #app {
 
 #app {
   max-width: 400px;
-  margin: auto;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 hr {

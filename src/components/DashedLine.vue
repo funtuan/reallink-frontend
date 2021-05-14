@@ -16,4 +16,8 @@ export default {
 line {
   stroke: #dadada;
 }
+
+.dashed-line {
+  height: 13px;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="survey pages pa-5" v-if="shop">
-    <ShopInfo class="_section" v-if="isCustomer" :shop="shop" />
+    <ShopInfo class="_section" :shop="shop" />
 
     <el-form
       ref="form"
@@ -8,7 +8,7 @@
       :rules="rules"
     >
       <section class="_section _flex-col">
-        <span class="survey-title">COVID-19 防疫實聯制措施</span>
+        <span class="survey-title">COVID-19 防疫實聯制</span>
         <p class="topic">身體健康，且一個月內無出國史</p>
         <div class="button-group">
           <el-button plain class="_normal-btn" :class="{active: surveyForm.aboard === true}" @click="surveyForm.aboard = true">否</el-button>
@@ -20,7 +20,6 @@
       <section class="_section" v-if="surveyForm.aboard">
         <p class="_section-title">1.最近一個月是否出現下述症狀</p>
         <el-checkbox-group class="_flex-col" v-model="surveyForm.symptom">
-          <el-checkbox label="無"></el-checkbox>
           <el-checkbox label="發燒(≧38℃) "></el-checkbox>
           <el-checkbox label="咳嗽"></el-checkbox>
           <el-checkbox label="喉嚨痛"></el-checkbox>
@@ -30,8 +29,8 @@
           <el-checkbox label="關節酸痛"></el-checkbox>
           <el-checkbox label="其他症狀"></el-checkbox>
         </el-checkbox-group>
-
-        <el-input class="_primary-input" :disabled="!surveyForm.symptom.includes('其他症狀')"  
+        <div style="height: 10px;"></div>
+        <el-input class="_primary-input" v-if="surveyForm.symptom.includes('其他症狀')"  
         v-model="surveyForm.otherSymptom" placeholder="填寫你的症狀"></el-input>
 
         <p class="_section-title">上述症狀起始日</p>
@@ -41,12 +40,10 @@
 
       <section class="_section" v-if="surveyForm.aboard">
         <p class="_section-title">2.最近一個月是否有出國旅遊/接觸史(含轉機)</p>
-        <el-checkbox-group class="_flex-col" :max="1" v-model="surveyForm.diseases">
-          <el-checkbox label="否"></el-checkbox>
-          <el-checkbox label="是，慢性疾病"></el-checkbox>
-          <el-checkbox label="是，重大疾病"></el-checkbox>
-        </el-checkbox-group>
-        <el-input v-model="surveyForm.diseasesInfo" :disabled="surveyForm.diseases[0] === '否'" placeholder="請簡述"></el-input>
+        <el-radio label="否" v-model="surveyForm.diseases">否</el-radio><br>
+        <el-radio label="是" v-model="surveyForm.diseases">是</el-radio>
+        <div style="height: 10px;"></div>
+        <el-input v-if="surveyForm.diseases ==='是'" v-model="surveyForm.diseasesInfo" :disabled="surveyForm.diseases[0] === '否'" placeholder="請填寫旅遊/接觸史(含轉機)地點"></el-input>
       </section>
 
       <el-form-item class="_section _flex-col" prop="name">
@@ -74,6 +71,7 @@
       <el-form-item  class="_section _flex-col" prop="fillTime">
         <p class="_section-title">時間｜{{showToDay}}</p>
         <el-time-select
+          style="width: 100%;"
           v-model="surveyForm.fillTime"
           :picker-options="{
             start: '00:00',
@@ -88,7 +86,7 @@
         <p class="_section-title">將填寫記錄保存於瀏覽器</p>
         <div class="button-group">
           <el-button plain class="_normal-btn" :class="{active: save === false}" @click="save = false">不保存</el-button>
-          <el-button plain class="_normal-btn" :class="{active: save === true}" @click="save = true">要保存</el-button>
+          <el-button plain class="_normal-btn" :class="{active: save === true}" @click="save = true">保存</el-button>
         </div>
       </section>
     </el-form>
@@ -120,7 +118,6 @@ export default {
   },
   data: () => ({
     loading: false,
-    isCustomer: true,
     termsContent: null,
     peopleNumberOptions: [],
     save: true,
@@ -134,7 +131,7 @@ export default {
       otherSymptom: null,
       symptomDate: null,
 
-      diseases: [],
+      diseases: '否',
       diseasesInfo: null,
       peopleNumber: 1,
       fillTime: null,
@@ -157,6 +154,7 @@ export default {
   methods: {
     ...mapActions([
       'CheckShop',
+      'SetInfo',
     ]),
     genPeopleNumberOptions () {
       for(let i=1; i <= 10; i++){
@@ -170,6 +168,10 @@ export default {
           if (this.save) {
             ls.set('survey', this.surveyForm)
           }
+          this.SetInfo({
+            code: this.$route.params.code,
+            ...this.surveyForm,
+          })
           this.$router.push(`/complete/${this.$route.params.code}`)
         }
       });
@@ -191,7 +193,7 @@ export default {
 
   mounted() {
     if (ls.get('survey')) {
-      this.$router.push(`/complete/${this.$route.params.code}`)
+      this.$router.push(`/fast/${this.$route.params.code}`)
     }
     this.surveyForm.fillTime = this.getNowTime()
     this.CheckShop(this.$route.params.code)

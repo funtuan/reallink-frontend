@@ -1,5 +1,6 @@
 const config = {
-  backendHost: '$VUE_APP_BACKEND_HOST'
+  backendHost: '$VUE_APP_BACKEND_HOST',
+  frontendHost: '$VUE_APP_FRONTEND_HOST'
 }
 
 export default (name) => {

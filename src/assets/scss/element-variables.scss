@@ -1,0 +1,14 @@
+$--color-primary: #b5c02c;
+
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+
+.el-input__inner {
+  background: #f4f4f4 !important;
+  border: 1px solid $primary-green !important;
+}
+.el-input__icon {
+  color: $primary-green !important;
+}

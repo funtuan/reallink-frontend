@@ -3,7 +3,7 @@
      <VueHtml2pdf
         :show-layout="false"
         :float-layout="true"
-        :enable-download="false"
+        :enable-download="!uploadMod"
         :preview-modal="true"
         :paginate-elements-by-height="1500"
         filename="hee hee"
@@ -22,7 +22,7 @@
       <section slot="pdf-content" class="post-pdf">
         <div class="box">
           <div class="main-title">
-            加密型實名制登記
+            台灣加密型實名制登記
           </div>
           <div class="sub-title">
             即日起配合政府之防疫政策，入內將採取實名制入場，請配合量體溫及填寫相關資料，同行者可一位代表填寫．
@@ -43,7 +43,7 @@
                 </div>
                 <div style="clear:both"></div>
               </div>
-              <div class="content">
+              <div class="shop-name">
                 {{name}}
               </div>
               <div class="sub">
@@ -60,7 +60,7 @@
           注意事項
         </div>
         <div class="note">
-          ※ 請記下您的文件列印期限及「取件編號」或是「取件QR Code」，於有效期間內至全台7-ELEVEN門市 ibon進行文件下載及櫃檯繳費。 超過列印期限，文件將會自動刪除！ ※ 檔案搬移需要5分鐘作業時間，可於取件前先以取件編號查詢，確認檔案是否上傳成功！
+          店家以「台灣加密型實名制」網站實施實連制，進行蒐集疫調資料，採行相符安全控制措施，確保系統安全防護水準。顧客登記的資料「台灣加密型實名制」網站可以存取，重視顧客隱私，資料決不會開放給第三方使用，嚴格遵照個人資料保護法規定。
         </div>
         <div class="pdf-men">
           <img src="@/assets/icon/pdfmen.svg" alt="">
@@ -89,8 +89,8 @@ export default {
       this.$refs.html2Pdf.generatePdf()
     },
     async hasDownloaded(blob) {
+      this.$refs.html2Pdf.closePreview()
       if (this.uploadMod) {
-        this.$refs.html2Pdf.closePreview()
         const data = await upload(blob)
         this.$emit('uploadResponse', data)
       }
@@ -156,7 +156,7 @@ export default {
           }
         }
       }
-      .content {
+      .shop-name {
         font-weight: 500;
         padding-left: 5px;
         margin-top: 4px;

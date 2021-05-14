@@ -13,33 +13,15 @@
       <div class="content code-num">2173117710</div>
       <DashedLine />
     </section>
-
-    <section class="_section">
-      <div class="title">文件上傳日期</div>
-      <div class="content">2021/05/12 17:31:17</div>
-      <DashedLine />
-    </section>
-
-    <section class="_section">
-      <div class="title">文件列印期限</div>
-      <div class="content">2021/05/15 17:31:17</div>
-      <DashedLine />
-    </section>
-
     <section class="_section">
       <div class="title">注意事項</div>
       <div class="notice-content">
-        ※ 請記下您的文件列印期限及「取件編號」或是「取件QR
-        Code」，於有效期間內至全台7-ELEVEN門市 ibon進行文件下載及櫃檯繳費。
+        ※ 請記下您的「取件編號」或是「取件QR
+        Code」，請於三天內至全台7-ELEVEN門市 ibon進行文件下載及櫃檯繳費。
         超過列印期限，文件將會自動刪除！ ※
         檔案搬移需要5分鐘作業時間，可於取件前先以取件編號查詢，確認檔案是否上傳成功！
       </div>
     </section>
-    <div class="_bottom-box">
-      <el-button plain class="_next-btn" @click="send">
-        下載文宣PDF
-      </el-button>
-    </div>
   </div>
 </template>
 

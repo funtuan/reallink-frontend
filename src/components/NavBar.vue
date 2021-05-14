@@ -1,7 +1,10 @@
 <template>
   <div class="nav-bar">
+    <div class="nav-title">
+      台灣加密型實名制
+    </div>
     <div class="nav-btn-container">
-      <span class="nav-btn" @click="routeTo('/about')" :class="{'active-border': routeName === 'About'}">關於</span>
+      <span class="nav-btn" @click="routeTo('/')" :class="{'active-border': routeName === 'About'}">關於</span>
       <span class="nav-btn" @click="routeTo('/contact')" :class="{'active-border': routeName === 'Contact'}">疫調聯絡</span>
       <span class="nav-btn" @click="routeTo('/contributes')" :class="{'active-border': routeName === 'Contributes'}">貢獻者介紹</span>
     </div>
@@ -26,7 +29,7 @@ export default {
     },
 
     register() {
-      this.$router.push('/shop-signup')
+      this.$router.push('/shopTerm')
     }
   }
 }
@@ -35,7 +38,7 @@ export default {
 <style scoped lang="scss">
 .nav-bar {
   width: 100%;
-  height: 60px;
+  height: 64px;
   background: white;
   position: fixed;
   top: 0;
@@ -54,12 +57,13 @@ export default {
   color: $primary-grey;
   padding-bottom: 20px;
   font-size: 14px;
+  height: 10px;
 }
 
 .nav-btn-container {
   display: flex;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 22px;
   padding-bottom: 10px;
   gap: 15px;
 }
@@ -71,5 +75,10 @@ export default {
 
 .active-border {
   border-bottom: $primary-green solid 2px;
+}
+.nav-title {
+  position: absolute;
+  font-weight: 500;
+  font-size: 12px;
 }
 </style>
