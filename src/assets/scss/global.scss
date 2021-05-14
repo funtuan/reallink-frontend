@@ -105,6 +105,7 @@ $primary-radius: 12px;
 // ==== Title ==== //
 .main-title {
   color: $primary-green;
+  font-size: 16px;
 }
 
 
@@ -170,10 +171,19 @@ $primary-radius: 12px;
 
 .pages{
   padding-top: 80px;
-  padding-bottom: 40px;
+  padding-bottom: 60px;
 }
 
 .active {
   color: white;
   background: $primary-green;
+}
+
+.title {
+  color: $secondary-grey;
+}
+
+.content {
+    color: $primary-grey;
+    padding: 10px 0;
 }

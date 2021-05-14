@@ -2,7 +2,7 @@
   <div class="i-bon pages pa-5">
     <p class="main-title">ibon列印條碼</p>
 
-    <section class="_section">
+    <section class="_section qrcode-section">
       <div class="qrcode-container">
         <VueQrcode class="qrcode" value="https://www.1stg.me" />
       </div>
@@ -56,30 +56,32 @@ export default {
 </style>
 
 <style scoped lang="scss">
-.qrcode-container {
-  background: $tertiary-grey;
-  border-radius: $primary-radius;
-  text-align: center;
+
+.qrcode-section {
+  padding-bottom: 20px;
+  .qrcode-container {
+    background: $tertiary-grey;
+    border-radius: $primary-radius;
+    text-align: center;
+  }
+  
+  .qrcode {
+    // max-width: 50%;
+    width: 50%;
+    margin: 20px;
+  }
+  
+  .qrcode-link {
+    cursor: pointer;
+    color: white;
+    padding: 20px;
+    border-bottom-right-radius: $primary-radius;
+    border-bottom-left-radius: $primary-radius;
+    background: $primary-green;
+  }
 }
 
-.qrcode {
-  // max-width: 50%;
-  width: 50%;
-  margin: 20px;
-}
 
-.qrcode-link {
-  cursor: pointer;
-  color: white;
-  padding: 20px;
-  border-bottom-right-radius: $primary-radius;
-  border-bottom-left-radius: $primary-radius;
-  background: $primary-green;
-}
-
-.code-num {
-  color: red;
-}
 
 .content {
   font-size: 18px;
@@ -87,14 +89,12 @@ export default {
 
 .notice-content {
   color: $secondary-grey;
+  margin-bottom: 10px;
 }
 
-.title {
-  color: $secondary-grey;
-}
 
-.content {
-    color: $primary-grey;
-    padding: 10px 0;
+
+.code-num {
+  color: red;
 }
 </style>
