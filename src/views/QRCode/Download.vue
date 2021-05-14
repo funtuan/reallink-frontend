@@ -51,7 +51,7 @@ export default {
       'info',
     ]),
     link () {
-      return `${configuration('frontendHost')}/t/${this.shop}`
+      return `${configuration('frontendHost')}/t/${this.shop.code}`
     }
   },
   data() {

@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import dayjs from 'dayjs';
 
 import { findOne as shopFindOne } from '@/api/shop';
 
 Vue.use(Vuex)
-import dayjs from 'dayjs';
 
 export default new Vuex.Store({
   state: {
