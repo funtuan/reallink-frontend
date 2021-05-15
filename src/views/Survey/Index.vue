@@ -53,7 +53,7 @@
 
       <el-form-item class="_section _flex-col" prop="phone">
         <p class="_section-title">電話</p>
-        <el-input v-model="surveyForm.phone" placeholder="你的電話" maxlength="10"></el-input>
+        <el-input type="number" v-model="surveyForm.phone" placeholder="你的電話" maxlength="10"></el-input>
       </el-form-item>
 
       <section  class="_section _flex-col">

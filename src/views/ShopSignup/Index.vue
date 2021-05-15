@@ -53,7 +53,7 @@
       <el-form-item class="_section">
         <p class="_section-title">負責人電話</p>
         <el-form-item class="_section" prop="contactPhone">
-          <el-input v-model="signupForm.contactPhone" placeholder="負責人電話" maxlength="10"></el-input>
+          <el-input type="number" v-model="signupForm.contactPhone" placeholder="負責人電話" maxlength="10"></el-input>
         </el-form-item>
       </el-form-item>
 
