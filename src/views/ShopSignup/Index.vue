@@ -74,6 +74,7 @@
 <script>
 import zip from '@/data/zip'
 import { create } from '@/api/shop';
+import { mapActions } from 'vuex'
 
 export default {
   name: "ShopSignup",
@@ -124,15 +125,20 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'SetLoading',
+    ]),
     async send() {
       this.$refs.form.validate(async valid => {
         if (valid) {
+          this.SetLoading(true)
           const shop = await create({
             ...this.signupForm,
             address: `${this.signupForm.city}${this.signupForm.area}${this.signupForm.address}`
           })
           console.log('shop', shop)
           this.$router.push(`/download/${shop.code}`)
+          this.SetLoading(false)
         }
       });
     },

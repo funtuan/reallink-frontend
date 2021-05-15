@@ -1,16 +1,21 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view/>
+    <router-view v-loading.fullscreen.lock="fullscreenLoading"/>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import NavBar from '@/components/NavBar'
 export default {
   name: 'App',
   components: {NavBar},
-
+  computed: {
+    ...mapState([
+      'fullscreenLoading',
+    ]),
+  },
   data: () => ({
     //
   })

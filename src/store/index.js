@@ -17,6 +17,7 @@ export default new Vuex.Store({
     pem: null,
     shop: null,
     info: null,
+    fullscreenLoading: false,
   },
   mutations: {
     SET_PEM: (state, pem) => {
@@ -31,9 +32,14 @@ export default new Vuex.Store({
     SET_INFO: (state, info) => {
       state.info = info
     },
+    SET_LOADING: (state, status) => {
+      state.fullscreenLoading = status
+    },
   },
   actions: {
     async CheckShop({ commit, state }, code) {
+      commit('SET_LOADING', true)
+
       if (!state.pem) {
         commit('SET_PEM', (await pemFindOne()).infoPublicKey)
       }
@@ -44,8 +50,10 @@ export default new Vuex.Store({
         commit('CLEAR_SHOP')
         commit('SET_SHOP', await shopFindOne(code))
       }
+      commit('SET_LOADING', false)
     },
     async SetInfo({ commit, state }, info) {
+      commit('SET_LOADING', true)
       let pem = state.pem
       if (!pem) {
         pem = (await pemFindOne()).infoPublicKey
@@ -57,7 +65,11 @@ export default new Vuex.Store({
         goAt: new Date(`${info.day} ${info.fillTime}`),
       })
       commit('SET_INFO', info)
+      commit('SET_LOADING', false)
     },
+    async SetLoading ({ commit }, status) {
+      commit('SET_LOADING', status)
+    }
   },
   modules: {
   }

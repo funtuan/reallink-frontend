@@ -73,6 +73,7 @@
 <script>
 import QrcodeVue from 'qrcode.vue'
 import VueHtml2pdf from 'vue-html2pdf'
+import { mapActions } from 'vuex'
 import { upload } from '@/api/file';
 
 export default {
@@ -85,7 +86,11 @@ export default {
     uploadMod: Boolean,
   },
   methods: {
+    ...mapActions([
+      'SetLoading',
+    ]),
     generateReport () {
+      this.SetLoading(true)
       this.$refs.html2Pdf.generatePdf()
     },
     async hasDownloaded(blob) {
@@ -94,6 +99,7 @@ export default {
         const data = await upload(blob)
         this.$emit('uploadResponse', data)
       }
+      this.SetLoading(false)
     }
   },
 
