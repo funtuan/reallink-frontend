@@ -60,8 +60,7 @@
           注意事項
         </div>
         <div class="note">
-          ※ 店家以「台灣加密型實聯制」網站實施實連制，進行蒐集疫調資料，採行相符安全控制措施，確保系統安全防護水準。顧客登記的資料「台灣加密型實聯制」網站可以存取，重視顧客隱私，資料決不會開放給第三方使用，嚴格遵照個人資料保護法規定。<br>
-          ※ 所蒐集之資料僅保存 28 日，屆期自動銷毀。
+          ※ 店家以「台灣加密型實聯制」網站實施實聯制，進行蒐集疫調資料，資料絕不會開放給第三方使用，資料僅保存 28 日，屆期自動銷毀。
         </div>
         <div class="pdf-men">
           <img src="@/assets/icon/pdfmen.svg" alt="">
@@ -186,7 +185,7 @@ export default {
     font-size: 22px;
   }
   .line {
-    margin-top: 70px;
+    margin-top: 55px;
     color: #B5C02C;
     width: 100%;
     height: 10px;

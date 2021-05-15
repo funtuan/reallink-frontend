@@ -4,7 +4,7 @@
 
     <section class="_section">
       <p class="_section-sub-title">已生成問卷連結</p>
-      <a href="link" target="_blank">{{link}}</a>
+      <a :href="link" target="_blank">{{link}}</a>
     </section>
 
     <section class="_section">
