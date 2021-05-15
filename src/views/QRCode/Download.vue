@@ -3,6 +3,11 @@
     <ShopInfo class="_section" :shop="shop" />
 
     <section class="_section">
+      <p class="_section-sub-title">已生成問卷連結</p>
+      <a href="link" target="_blank">{{link}}</a>
+    </section>
+
+    <section class="_section">
       <p class="_section-sub-title">步驟一</p>
       <div>點擊<span class="highlight"> 下載 PDF</span> 或 <span class="highlight">7-11 ibon列印</span>，將 <span class="highlight">台灣加密型實名制登記</span> QRcode 列印出來</div>
     </section>
