@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div class="nav-title">
-      台灣加密型實名制
+      台灣加密型實聯制
     </div>
     <div class="nav-btn-container">
       <span class="nav-btn" @click="routeTo('/')" :class="{'active-border': routeName === 'About'}">關於</span>

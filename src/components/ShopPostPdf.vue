@@ -6,7 +6,7 @@
         :enable-download="!uploadMod"
         :preview-modal="true"
         :paginate-elements-by-height="1500"
-        filename="hee hee"
+        filename="TWlink-QRcode"
         :pdf-quality="2"
         :manual-pagination="false"
         pdf-format="a4"
@@ -22,10 +22,10 @@
       <section slot="pdf-content" class="post-pdf">
         <div class="box">
           <div class="main-title">
-            台灣加密型實名制登記
+            台灣加密型實聯制登記
           </div>
           <div class="sub-title">
-            即日起配合政府之防疫政策，入內將採取實名制入場，請配合量體溫及填寫相關資料，同行者可一位代表填寫．
+            即日起配合政府之防疫政策，入內將採取實聯制入場，請配合量體溫及填寫相關資料，同行者可一位代表填寫．
           </div>
           <div class="qrcode">
             <div class="top-title">
@@ -60,7 +60,8 @@
           注意事項
         </div>
         <div class="note">
-          店家以「台灣加密型實名制」網站實施實連制，進行蒐集疫調資料，採行相符安全控制措施，確保系統安全防護水準。顧客登記的資料「台灣加密型實名制」網站可以存取，重視顧客隱私，資料決不會開放給第三方使用，嚴格遵照個人資料保護法規定。
+          ※ 店家以「台灣加密型實聯制」網站實施實連制，進行蒐集疫調資料，採行相符安全控制措施，確保系統安全防護水準。顧客登記的資料「台灣加密型實聯制」網站可以存取，重視顧客隱私，資料決不會開放給第三方使用，嚴格遵照個人資料保護法規定。<br>
+          ※ 所蒐集之資料僅保存 28 日，屆期自動銷毀。
         </div>
         <div class="pdf-men">
           <img src="@/assets/icon/pdfmen.svg" alt="">

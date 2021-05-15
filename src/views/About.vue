@@ -9,36 +9,70 @@
     </el-carousel>
 
     <section v-if="page === 0">
-      <p class="main-title ">疫情爆發！實聯制真的安全嗎？</p>
-      <div class="content">
-        本土疫情爆發，中央流行疫情指揮中心建議店家實聯制（線上實名制）
+      <p class="main-title ">疫情爆發！需要一個快速安全的實聯制</p>
+      <div class="about-content">
+        依據第三級警戒區域九大防疫指引，餐飲場所、婚、喪禮應遵守實聯制<br><br>
+        連鎖店家先開始實施實聯制，各小店家也陸續跟上，許多衍生問題開始浮上檯面
       </div>
     </section>
 
     <section v-if="page === 1">
-      <p class="main-title ">衍生問題</p>
-      <div class="content">
-        各店家實聯制填寫欄位不統一，資訊過多或缺少，甚至有需填寫生日、身份證的問卷<br>
-        個人資料揭露給小店家，被明碼儲存不安全，不確定有定期刪除機制<br>
-        消費者前往每間店都要重新填寫實聯制資料，非常不方便<br>
+      <p class="main-title ">實聯制衍生的問題</p>
+      <div class="about-content">
+        <div class="sub-title">
+          ．網路資安風險
+        </div>
+        <div class="sub-content">
+          店家自行產生的紙本或線上表單工具，有蒐集個資的疑慮
+        </div>
+        <div class="sub-title">
+          ．個資疑慮
+        </div>
+        <div class="sub-content">
+          各店家實聯制填寫資訊不統一，甚至有需填寫與生日、身份證
+        </div>
+        <div class="sub-title">
+          ．資料有無自動銷毀
+        </div>
+        <div class="sub-content">
+          依中央疫情指揮中心「防疫新生活運動：實聯制措施指引」自蒐集日起 28 日內需定期銷毀
+        </div>
+        <div class="sub-title">
+          ．實聯制不便性
+        </div>
+        <div class="sub-content">
+          前往各店家都重新填寫資料，非常不方便
+        </div>
       </div>
     </section>
 
     <section v-if="page === 2">
-      <p class="main-title ">解決方案</p>
-      <div class="content">
-        快速產生實聯制表單 <br>
-        店家可快速生成標準的實聯制填寫表單格式，不用額外設置
-        <br><br>
-        個資加密保存<br>
-        個資使用RSA 2048bit公鑰加密後存入資料庫，私鑰嚴格保存於離線環境，嚴格限制疫調需求才揭露
-        <br><br>
-        自動刪除<br>
-        加密後的個資只保留 28 天，將定期刪除
-        <br><br>
-        快速填寫<br>
-        可選擇自動記錄填寫諮詢於個人瀏覽器中，方便下次填寫
-        <br><br>
+      <p class="main-title ">加密型實聯制誕生</p>
+      <div class="about-content">
+        <div class="sub-title">
+          ．快速建立實聯制表單
+        </div>
+        <div class="sub-content">
+          店家可快速建立標準的實聯制填寫表單格式，不用額外設置
+        </div>
+        <div class="sub-title">
+          ．個資加密保存
+        </div>
+        <div class="sub-content">
+          使用 RSA 2048bit 公鑰加密後存入資料庫，私鑰嚴格保存於離線環境，嚴格限制有疫調需求才揭露
+        </div>
+        <div class="sub-title">
+          ．資料定期刪除
+        </div>
+        <div class="sub-content">
+          所蒐集之資料僅保存 28 日，屆期自動銷毀
+        </div>
+        <div class="sub-title">
+          ．快速填寫
+        </div>
+        <div class="sub-content">
+          可選擇是否將填寫資訊紀錄於個人裝置中，方便下次自動代入填寫
+        </div>
       </div>
     </section>
   </div>
@@ -73,7 +107,18 @@ export default {
   justify-content: center;
 }
 
-.content {
-    color: $primary-grey;
+.about-content {
+  color: $primary-grey;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+  font-weight: normal;
+  .sub-title {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  .sub-content {
+    margin-left: 16px;
+  }
 }
 </style>

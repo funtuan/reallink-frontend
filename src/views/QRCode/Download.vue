@@ -9,14 +9,14 @@
 
     <section class="_section">
       <p class="_section-sub-title">步驟一</p>
-      <div>點擊<span class="highlight"> 下載 PDF</span> 或 <span class="highlight">7-11 ibon列印</span>，將 <span class="highlight">台灣加密型實名制登記</span> QRcode 列印出來</div>
+      <div>點擊<span class="highlight"> 下載 PDF</span> 或 <span class="highlight">7-11 ibon列印</span>，將 <span class="highlight">台灣加密型實聯制登記</span> QRcode 列印出來</div>
     </section>
     
     <hr>
 
     <section class="_section">
       <p class="_section-sub-title">步驟二</p>
-      <div>來店民眾掃描 QRcode 填寫 <span class="highlight">台灣加密型實名制登記</span>，配合政府政策，一起落實防疫工作</div>
+      <div>來店民眾掃描 QRcode 填寫 <span class="highlight">台灣加密型實聯制登記</span>，配合政府政策，一起落實防疫工作</div>
     </section>
 
     <div class="_bottom-box-two">
