@@ -14,17 +14,23 @@
       <a href="https://github.com/Proladon">github.com/Proladon</a>
       <DashedLine />
     </section>
-
+    
     <section class="_section">
-      <div class="work-type">Technical Writer</div>
-      <div class="contributor">Mu Lin</div>
+      <div class="work-type">SRE</div>
+      <div class="contributor">Mino</div>
+      <a href="https://github.com/Sean2525">github.com/Sean2525</a>
       <DashedLine />
     </section>
 
     <section class="_section">
-      <div class="work-type">SRE</div>
-      <div class="contributor">Mino</div>
-      <a href="https://mino.tw">mino.tw</a>
+      <div class="work-type">Technical Writer</div>
+      <div class="contributor">MuMu Lin</div>
+      <DashedLine />
+    </section>
+
+    <section class="_section">
+      <div class="work-type">Marketing Writer</div>
+      <div class="contributor">Elaine</div>
       <DashedLine />
     </section>
 

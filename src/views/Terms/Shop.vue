@@ -70,7 +70,7 @@ export default {
     if (ls.get('shopTerms')) {
       // this.$router.push(`/shop-signup`)
     }
-    this.CheckShop(this.$route.params.code)
+    // this.CheckShop(this.$route.params.code)
   },
   methods: {
     goSurvey() {

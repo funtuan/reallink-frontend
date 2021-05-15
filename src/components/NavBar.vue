@@ -6,7 +6,7 @@
     <div class="nav-btn-container">
       <span class="nav-btn" @click="routeTo('/')" :class="{'active-border': routeName === 'About'}">關於</span>
       <span class="nav-btn" @click="routeTo('/contact')" :class="{'active-border': routeName === 'Contact'}">相關問題</span>
-      <span class="nav-btn" @click="routeTo('/contributes')" :class="{'active-border': routeName === 'Contributes'}">貢獻者介紹</span>
+      <span class="nav-btn" @click="routeTo('/contributes')" :class="{'active-border': routeName === 'Contributes'}">貢獻者</span>
     </div>
 
     <el-button class="_primary-btn register-btn" @click="register">
