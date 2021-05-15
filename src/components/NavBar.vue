@@ -56,6 +56,7 @@ export default {
   cursor: pointer;
   color: $primary-grey;
   padding-bottom: 20px;
+  padding-right: 15px;
   font-size: 14px;
   height: 10px;
 }
@@ -65,7 +66,7 @@ export default {
   height: 100%;
   padding-top: 22px;
   padding-bottom: 10px;
-  gap: 15px;
+  gap: 0;
 }
 
 .register-btn {
