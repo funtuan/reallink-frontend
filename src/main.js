@@ -12,6 +12,10 @@ Vue.use(ElementUI, { locale })
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
+import VConsole from 'vconsole'
+var vConsole = new VConsole();
+console.log(vConsole.version);
+
 new Vue({
   router,
   store,
