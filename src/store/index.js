@@ -62,7 +62,7 @@ export default new Vuex.Store({
       await record({
         code: info.code,
         info: encrypt(pem, info),
-        goAt: new Date(`${info.day} ${info.fillTime}`),
+        goAt: `${info.day} ${info.fillTime}`,
       })
       commit('SET_INFO', info)
       commit('SET_LOADING', false)
