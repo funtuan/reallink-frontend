@@ -24,7 +24,7 @@
 
     <section class="_section">
       <div class="contact-title">連絡信箱</div>
-      <div class="contact-content">hank85627@gmail.com</div>
+      <div class="contact-content">service@twlink.app</div>
     </section>
   </div>
 </template>
