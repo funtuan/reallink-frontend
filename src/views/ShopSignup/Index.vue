@@ -74,6 +74,7 @@
 <script>
 import zip from '@/data/zip'
 import { create } from '@/api/shop';
+import ls from 'local-storage'
 import { mapActions } from 'vuex'
 
 export default {
@@ -122,6 +123,9 @@ export default {
       if (!(this.cities.includes(one.city))) {
         this.cities.push(one.city)
       }
+    }
+    if (!ls.get('shopTerms')) {
+      this.$router.push(`/shopTerm`)
     }
   },
   methods: {
