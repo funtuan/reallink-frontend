@@ -130,6 +130,10 @@ $primary-radius: 12px;
 
 
 // ==== Layout ==== //
+._flex {
+  display: flex;
+}
+
 ._flex-between {
   display: flex;
   justify-content: space-between;

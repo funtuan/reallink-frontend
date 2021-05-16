@@ -58,6 +58,11 @@ const routes = [
     path: '/shop-signup',
     name: 'ShopSignup',
     component: () => import('../views/ShopSignup/Index.vue')
+  },
+  {
+    path: '/dashboard/:code/:secret',
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard/Index.vue')
   }
 ]
 

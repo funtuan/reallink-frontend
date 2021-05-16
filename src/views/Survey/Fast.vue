@@ -99,7 +99,7 @@ export default {
   methods: {
     ...mapActions([
       'CheckShop', // 取得當前使用者填寫問卷之店家資訊
-      'SetInfo', // 取得當前使用者填寫問卷之店家資訊
+      'SetInfo', 
     ]),
 
     // 生成人數數量選項

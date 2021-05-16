@@ -13,3 +13,8 @@ export const nowHoursMinutes = () => {
 
   return `${hour}:${min}`
 }
+
+
+// export const getHoursMinutes = (date) => {
+//   new Date(date).getHours
+// }
