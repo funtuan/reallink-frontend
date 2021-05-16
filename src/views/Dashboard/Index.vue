@@ -7,8 +7,8 @@
     <section class="_section durations">
         <div class="duration-nav">
             <span class="nav-btn time-area" :class="{'duration-active' : durations === 'day'}" @click="showDuration('day')">昨天</span>
-            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'week'}" @click="showDuration('week')">本周</span>
-            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'month'}" @click="showDuration('month')">本月</span>
+            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'week'}" @click="showDuration('week')">7天</span>
+            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'month'}" @click="showDuration('month')">28天</span>
         </div>
     </section>
 
@@ -17,7 +17,7 @@
             <img src="@/assets/icon/file.svg" alt="file-icon">
             <div class="count-info _flex-col">
                 <span>登記筆數</span>
-                <span>2021.05.12 - 2021.05.19</span>
+                <span>{{startDate}} - {{endDate}}</span>
             </div>
         </div>
 
@@ -119,7 +119,7 @@ export default {
     }) {
         this.SetLoading(true)
         this.startDate = start
-        this.startDate = end
+        this.endDate = end
         this.total = (await durationCount({
             code: this.$route.params.code,
             secret: this.$route.params.secret,

@@ -39,7 +39,7 @@
                   編號{{code}}
                 </div>
                 <div class="icon">
-                  <img src="@/assets/icon/food.svg" alt="">
+                  <img src="@/assets/icon/w_shop.svg" alt="">
                 </div>
                 <div style="clear:both"></div>
               </div>
