@@ -7,7 +7,7 @@
     <ShopInfo class="_section" :shop="shop" />
     <div style="height: 13px;"></div>
     <section class="_section">
-      <div class="title">姓名</div>
+      <div class="title">稱呼</div>
       <div class="content">{{info.name}}</div>
       <DashedLine />
     </section>
