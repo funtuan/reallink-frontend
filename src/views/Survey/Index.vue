@@ -47,8 +47,8 @@
       </section>
 
       <el-form-item class="_section _flex-col" prop="name">
-        <p class="_section-title">姓名</p>
-        <el-input v-model="surveyForm.name" placeholder="你的名字"></el-input>
+        <p class="_section-title">稱呼</p>
+        <el-input v-model="surveyForm.name" placeholder="怎麼稱呼"></el-input>
       </el-form-item>
 
       <el-form-item class="_section _flex-col" prop="phone">
@@ -140,7 +140,7 @@ export default {
 
     rules: {
       name: [
-        { required: true, message: "請填寫姓名", trigger: "blur" },
+        { required: true, message: "請填寫稱呼", trigger: "blur" },
         { min: 2, max: 10, message: "長度需在 2 到 10 字之間", trigger: "blur" }
       ],
       phone: [
