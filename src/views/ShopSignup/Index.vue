@@ -44,9 +44,9 @@
         </el-form-item>
 
       <el-form-item class="_section">
-        <p class="_section-title">負責人</p>
+        <p class="_section-title">負責人姓名</p>
         <el-form-item class="_section" prop="contactName">
-          <el-input v-model="signupForm.contactName" placeholder="負責人名字"></el-input>
+          <el-input v-model="signupForm.contactName" placeholder="負責人姓名"></el-input>
         </el-form-item>
       </el-form-item>
 
@@ -99,11 +99,11 @@ export default {
       area: { required: true, message: "請選擇鄉鎮市", trigger: "blur" },
       address: { required: true, message: "請輸入地址", trigger: "blur" },
       contactName: [
-        { required: true, message: "請輸入聯絡人名稱", trigger: "blur" },
+        { required: true, message: "請輸入負責人名稱", trigger: "blur" },
         { min: 2, max: 10, message: "長度需在 2 到 10 字之間", trigger: "blur" }
       ],
       contactPhone: [
-        { required: true, message: "請輸入聯絡人電話", trigger: "blur" },
+        { required: true, message: "請輸入負責人電話", trigger: "blur" },
         { min: 7, max: 10, message: "長度需在 7 到 10 字之間", trigger: "blur" }
       ],
       contactEmail: { required: true, message: "請輸入Email", trigger: "blur" },
