@@ -79,7 +79,6 @@ import { mapActions } from 'vuex'
 
 export default {
   name: "ShopSignup",
-
   data: () => ({
     cities: [],
     signupForm: {
@@ -91,7 +90,6 @@ export default {
       contactPhone: '',
       contactEmail: '',
     },
-
     rules: {
       name: [
         { required: true, message: "請輸入店家名稱", trigger: "blur" },
@@ -112,7 +110,6 @@ export default {
     }
 
   }),
-
   computed: {
     areas () {
       if (this.signupForm.city === '') {
@@ -121,24 +118,20 @@ export default {
       return zip.filter(one => one.city === this.signupForm.city).map(one => one.area)
     },
   },
-
   created () {
     for (const one of zip) {
       if (!(this.cities.includes(one.city))) {
         this.cities.push(one.city)
       }
     }
-
-    if (! ls.get('shopTerms')) {
+    if (!ls.get('shopTerms')) {
       this.$router.push(`/shopTerm`)
     }
   },
-  
   methods: {
     ...mapActions([
       'SetLoading',
     ]),
-
     async send() {
       this.$refs.form.validate(async valid => {
         if (valid) {
@@ -147,15 +140,14 @@ export default {
             ...this.signupForm,
             address: `${this.signupForm.city}${this.signupForm.area}${this.signupForm.address}`
           })
-
           console.log('shop', shop)
           this.$router.push(`/download/${shop.code}`)
           this.SetLoading(false)
         }
-      })
+      });
     },
   }
-}
+};
 </script>
 
 

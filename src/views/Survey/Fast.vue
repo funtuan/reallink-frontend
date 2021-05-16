@@ -30,7 +30,7 @@
     </section>
 
     <section class="_section">
-      <div class="title">時間 |{{showToday}}</div>
+      <div class="title">時間 |{{showToDay}}</div>
       <div style="height: 5px;"></div>
       <el-time-select
         style="width: 100%;"
@@ -70,14 +70,9 @@ import ls from 'local-storage'
 import dayjs from 'dayjs'
 import DashedLine from '@/components/DashedLine'
 import ShopInfo from '@/components/ShopInfo'
-import { nowHoursMinutes } from '@/utils/dateTime'
-import { genNumberToArray } from '@/utils/generate'
-
 export default {
   name: 'Complete',
-  
   components: { ShopInfo, DashedLine },
-  
   data: ()=> ({
     selectTime: null,
     selectPeopleNum: 1,
@@ -90,31 +85,26 @@ export default {
       'shop',
       'info',
     ]),
-    
-    showToday() {
+    showToDay() {
       return dayjs(this.surveyForm.toDay).format('YYYY.MM.DD')
     }
   },
 
   methods: {
     ...mapActions([
-      'CheckShop', // 取得當前使用者填寫問卷之店家資訊
-      'SetInfo', // 取得當前使用者填寫問卷之店家資訊
+      'CheckShop',
+      'SetInfo',
     ]),
-
-    // 生成人數數量選項
     genPeopleNumberOptions () {
-      genNumberToArray(1, 10, this.peopleNumberOptions)
+      for(let i=1; i <= 10; i++){
+        this.peopleNumberOptions.push(i)
+      }
       this.peopleNumberOptions.push('10+')
     },
-
-    // 讓使用者重新填寫(更新)資料
     updateUserData() {
       ls.remove('survey')
       this.$router.push(`/t/${this.$route.params.code}`)
     },
-
-    // 送出使用者資料
     async send () {
       await this.SetInfo({
         code: this.$route.params.code,
@@ -122,15 +112,22 @@ export default {
       })
       this.$router.push(`/complete/${this.$route.params.code}`)
     },
-
-    // 取得當前時間 Hours : Minutes
     getNowTime () {
-      return nowHoursMinutes()
+      let hour = new Date().getHours()
+      let min = Math.ceil(new Date().getMinutes() / 15) * 15
+      if (min === 60) {
+        min = 0
+        hour++
+      }
+      if (hour === 24) hour = 0
+      hour = hour >= 10 ? `${hour}` : `0${hour}`
+      min = min >= 10 ? `${min}` : `0${min}`
+
+      return `${hour}:${min}`
     },
   },
 
   mounted () {
-    // 如使用者本地無此店家填寫紀錄則路由回同意條款頁面
     if (ls.get('survey')) {
       this.surveyForm = ls.get('survey')
       this.surveyForm.fillTime = this.getNowTime()
@@ -138,7 +135,6 @@ export default {
     } else {
       this.$router.push(`/t/${this.$route.params.code}`)
     }
-
     this.CheckShop(this.$route.params.code)
     this.genPeopleNumberOptions()
   }

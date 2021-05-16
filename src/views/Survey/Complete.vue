@@ -46,20 +46,15 @@
 import { mapState, mapActions } from 'vuex'
 import DashedLine from '@/components/DashedLine'
 import ShopInfo from '@/components/ShopInfo'
-import { nowHoursMinutes } from '@/utils/dateTime'
-import { genNumberToArray } from '@/utils/generate'
-
 export default {
   name: 'Complete',
   components: { ShopInfo, DashedLine },
-  
   data: ()=> ({
     filled: true,
     selectTime: new Date(),
     selectPeopleNum: 1,
     peopleNumberOptions: []
   }),
-
   computed: {
     ...mapState([
       'shop',
@@ -71,16 +66,25 @@ export default {
     ...mapActions([
       'CheckShop',
     ]),
-
     genPeopleNumberOptions () {
-      genNumberToArray(1, 10, this.peopleNumberOptions)
+      for(let i=1; i <= 10; i++){
+        this.peopleNumberOptions.push(i)
+      }
       this.peopleNumberOptions.push('10+')
     },
-
     getNowTime () {
-      return nowHoursMinutes()
-    },
+      let hour = new Date().getHours()
+      let min = Math.ceil(new Date().getMinutes() / 15) * 15
+      if (min === 60) {
+        min = 0
+        hour++
+      }
+      if (hour === 24) hour = 0
+      hour = hour >= 10 ? `${hour}` : `0${hour}`
+      min = min >= 10 ? `${min}` : `0${min}`
 
+      return `${hour}:${min}`
+    },
     close() {
       this.$router.push(`/`)
     },

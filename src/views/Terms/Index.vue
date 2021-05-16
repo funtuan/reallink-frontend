@@ -66,7 +66,6 @@
 import { mapState, mapActions } from 'vuex'
 import ls from 'local-storage'
 import ShopInfo from '@/components/ShopInfo'
-
 export default {
   name:'Terms',
   components: {ShopInfo},
@@ -75,12 +74,10 @@ export default {
       'shop',
     ]),
   },
-  
   data: () => ({
     termsContent: null,
     agree: true,
   }),
-
   created() {
     if (ls.get('terms')) {
       this.$router.push(`/survey/${this.$route.params.code}`)
@@ -88,12 +85,10 @@ export default {
     }
     this.CheckShop(this.$route.params.code)
   },
-
   methods: {
     ...mapActions([
       'CheckShop',
     ]),
-
     goSurvey() {
       if (this.agree) {
         ls.set('terms', true)
@@ -105,7 +100,9 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
 
+</style>
 <style scoped lang="scss">
 .terms-content{
   color: $primary-grey;
@@ -117,4 +114,7 @@ export default {
   font-size: 14px;
   text-indent: 32px;
 }
+
+
+
 </style>

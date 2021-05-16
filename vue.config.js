@@ -5,10 +5,7 @@ module.exports = {
   css:{
     loaderOptions:{
       scss:{
-        prependData: `
-        @import "~@/assets/scss/global.scss";
-        @import "~@/assets/scss/element-overwrite.scss";
-        `
+        prependData: `@import "~@/assets/scss/global.scss";`
       }
     }
   }
