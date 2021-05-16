@@ -1,14 +1,14 @@
 <template>
-  <div class="dashboard pages pa-5">
+  <div class="dashboard pages pa-5" v-if="shop">
     <ShopInfo class="_section" :shop="shop" />
     
     <div class="main-title title-1">選擇區間查看登記數量</div>
 
     <section class="_section durations">
         <div class="duration-nav">
-            <span class="nav-btn" :class="{'duration-active' : durations === 'day'}" @click="showDuration('day')">昨天</span>
-            <span class="nav-btn" :class="{'duration-active' : durations === 'week'}" @click="showDuration('week')">本周</span>
-            <span class="nav-btn" :class="{'duration-active' : durations === 'month'}" @click="showDuration('month')">本月</span>
+            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'day'}" @click="showDuration('day')">昨天</span>
+            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'week'}" @click="showDuration('week')">本周</span>
+            <span class="nav-btn time-area" :class="{'duration-active' : durations === 'month'}" @click="showDuration('month')">本月</span>
         </div>
     </section>
 
@@ -26,7 +26,7 @@
         </div>
     </section>
 
-    <div class="main-title title-1">近期五筆 | {{todayDate()}}</div>
+    <div class="main-title title-1">登記細項 | 只顯示當天最後五筆</div>
     
     <section class="icon-container _flex-col" v-if="recent.length === 0">
         <img class="nodata-icon" src="@/assets/icon/nodata.svg" alt="nodata-icon">
@@ -42,7 +42,7 @@
         <div class="row" v-for="(data, index) in recent" :key="`data-${index}`">
             <span class="data-left">{{inDate(data)}}</span>
             <span class="data-right">{{inTime(data)}}</span>
-            <DashedLine v-if="index !== 4" />
+            <DashedLine v-if="index !== (recent.length-1)" />
         </div>
     </section>
 
@@ -55,10 +55,6 @@ import DashedLine from '@/components/DashedLine'
 import ShopInfo from "@/components/ShopInfo";
 import { durationCount, todayRecent } from '@/api/shop'
 import dayjs from 'dayjs'
-import startOfISOWeek from 'date-fns/startOfISOWeek'
-import endOfISOWeek from 'date-fns/endOfISOWeek'
-import startOfMonth from 'date-fns/startOfMonth'
-// import endOfMonth from 'date-fns/endOfMonth'
 
 export default {
   name: "Dashboard",
@@ -79,39 +75,31 @@ export default {
   methods: {
     ...mapActions([
       "CheckShop",
-      "SetInfo"
+      "SetLoading"
     ]),
 
     async showDuration(duration) {
         this.durations = duration
 
         if (duration === 'day') {
-            const date = dayjs(new Date()).subtract(1, 'dates').format('YYYY-MM-DD')
-            this.startDate = date
-            this.endDate = date
-            await this.getDuration()
+            await this.getDuration({
+                start: dayjs(new Date()).add(-1, 'day').format('YYYY-MM-DD'),
+                end: dayjs(new Date()).add(-1, 'day').format('YYYY-MM-DD'),
+            })
         }
         
         if(duration === 'week') {
-            const start = startOfISOWeek(new Date())
-            const end = endOfISOWeek(new Date())
-            this.startDate = dayjs(start).format('YYYY-MM-DD')
-            this.endDate = dayjs(end).format('YYYY-MM-DD')
-            await this.getDuration()
+            await this.getDuration({
+                start: dayjs(new Date()).add(-8, 'day').format('YYYY-MM-DD'),
+                end: dayjs(new Date()).add(-1, 'day').format('YYYY-MM-DD'),
+            })
         }
 
         if(duration === 'month') {
-            const start = startOfMonth(new Date())
-            // const end = endOfMonth(new Date())
-            
-            this.startDate = dayjs(start).format('YYYY-MM-DD')
-            
-            if(dayjs(start).month() === 2){
-                this.endDate = dayjs(start).add(27, 'd').format('YYYY-MM-DD')
-            }else{
-                this.endDate = dayjs(start).add(28, 'd').format('YYYY-MM-DD')
-            }
-            await this.getDuration()
+            await this.getDuration({
+                start: dayjs(new Date()).add(-27, 'day').format('YYYY-MM-DD'),
+                end: dayjs(new Date()).add(-1, 'day').format('YYYY-MM-DD'),
+            })
         }
     },
 
@@ -125,19 +113,20 @@ export default {
         return date.format('HH:mm')
     },
 
-    todayDate () {
-      return dayjs(new Date()).format('MM.DD')
-    },
-
-    async getDuration() {
-        this.total = await durationCount({
+    async getDuration({
+        start,
+        end,
+    }) {
+        this.SetLoading(true)
+        this.startDate = start
+        this.startDate = end
+        this.total = (await durationCount({
             code: this.$route.params.code,
             secret: this.$route.params.secret,
-            start: this.startDate(),
-            end: this.endDate(),
-        }).catch(err=>{
-            console.log(err.response.data)
-        })
+            start,
+            end,
+        })).count
+        this.SetLoading(false)
     }
   },
   
@@ -148,20 +137,11 @@ export default {
     this.CheckShop(code)
     // this.showDuration('day')
     
-    this.total = await durationCount({
-        code,
-        secret,
-        end: dayjs(new Date()).subtract(1, 'd').format('YYYY-MM-DD'),
-        start: dayjs(new Date()).subtract(1, 'd').format('YYYY-MM-DD'),
-    }).catch(err=>{
-        console.log(err.response.data)
-    })
+    this.showDuration('day')
 
     this.recent = await todayRecent({
         code,
         secret,
-    }).catch(err=>{
-        console.log(err.response.data)
     })
   }
 }
@@ -180,6 +160,11 @@ export default {
     .nav-btn {
         color: $secondary-grey;
         margin-right: 20px;
+    }
+
+    .time-area {
+        cursor: pointer;
+        font-size: 14px;
     }
 
     .duration-active {
@@ -202,10 +187,12 @@ export default {
 }
 
 .count-info, .total-count {
+    font-size: 12px;
     color: white;
 }
 
 .total-count {
+    font-weight: bold;
     font-size: 24px;
 }
 

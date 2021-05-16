@@ -63,6 +63,7 @@
           <el-input v-model="signupForm.contactEmail" placeholder="負責人E-mail"></el-input>
         </el-form-item>
       </el-form-item>
+      <p class="min-note">提醒您！信箱將用作驗證身份及發送後台連結</p>
       <div style="height: 14px;"></div>
       <div class="_bottom-box">
         <el-button plain class="_next-btn" @click="send">送出</el-button>
@@ -148,8 +149,7 @@ export default {
             address: `${this.signupForm.city}${this.signupForm.area}${this.signupForm.address}`
           })
 
-          console.log('shop', shop)
-          this.$router.push(`/download/${shop.code}`)
+          this.$router.push(`/download/${shop.code}/${shop.secret}`)
           this.SetLoading(false)
         }
       })
@@ -163,5 +163,11 @@ export default {
 .main-title {
   margin-top: 6px;
   margin-bottom: -2px;
+}
+
+.min-note {
+  color: $primary-green;
+  font-weight: 500;
+  font-size: 14px;
 }
 </style>

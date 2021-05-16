@@ -20,7 +20,7 @@ const routes = [
     component: () => import('../views/Contributes.vue')
   },
   {
-    path: '/download/:code',
+    path: '/download/:code/:secret',
     name: 'Download',
     component: () => import('../views/QRCode/Download.vue')
   },

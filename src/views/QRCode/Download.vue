@@ -27,6 +27,13 @@
       </div>
     </section>
 
+    <section class="_section">
+      <p class="_section-sub-title">填寫進度確認</p>
+      <div>
+        <a :href="`/dashboard/${$route.params.code}/${$route.params.secret}`">查看填寫進度</a>
+      </div>
+    </section>
+
     <div class="_bottom-box-two">
       <el-button plain class="_update-btn" @click="downloadPDF">
         下載 PDF </el-button
@@ -113,5 +120,8 @@ export default {
 
 .highlight {
   color: $primary-green;
+}
+a {
+    color: $primary-green;
 }
 </style>
