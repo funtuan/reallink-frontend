@@ -19,5 +19,6 @@ line {
 
 .dashed-line {
   height: 13px;
+  stroke-width: 0.5
 }
 </style>

@@ -20,7 +20,7 @@ const routes = [
     component: () => import('../views/Contributes.vue')
   },
   {
-    path: '/download/:code',
+    path: '/download/:code/:secret',
     name: 'Download',
     component: () => import('../views/QRCode/Download.vue')
   },
@@ -58,6 +58,11 @@ const routes = [
     path: '/shop-signup',
     name: 'ShopSignup',
     component: () => import('../views/ShopSignup/Index.vue')
+  },
+  {
+    path: '/dashboard/:code/:secret',
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard/Index.vue')
   }
 ]
 

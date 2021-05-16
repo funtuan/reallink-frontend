@@ -103,8 +103,10 @@
 import dayjs from 'dayjs';
 import ls from 'local-storage'
 import { mapState, mapActions } from 'vuex'
+import ShopInfo from "@/components/ShopInfo"
+import { nowHoursMinutes } from '@/utils/dateTime'
+import { genNumberToArray } from '@/utils/generate'
 
-import ShopInfo from "@/components/ShopInfo";
 export default {
   name: "Survey",
   components: { ShopInfo },
@@ -113,6 +115,7 @@ export default {
       'shop',
     ]),
   },
+  
   data: () => ({
     loading: false,
     termsContent: null,
@@ -134,6 +137,7 @@ export default {
       fillTime: null,
       day: dayjs().format('YYYY-MM-DD')
     },
+
     rules: {
       name: [
         { required: true, message: "請填寫稱呼", trigger: "blur" },
@@ -153,38 +157,32 @@ export default {
       'CheckShop',
       'SetInfo',
     ]),
+    
+    // 生成人數數量選項
     genPeopleNumberOptions () {
-      for(let i=1; i <= 10; i++){
-        this.peopleNumberOptions.push(i)
-      }
+      genNumberToArray(1, 10, this.peopleNumberOptions)
       this.peopleNumberOptions.push('10+')
     },
+
+    // 完成資料填寫送出
     complete() {
       this.$refs.form.validate(async valid => {
-        if (valid) {
-          if (this.save) {
-            ls.set('survey', this.surveyForm)
-          }
-          await this.SetInfo({
-            code: this.$route.params.code,
-            ...this.surveyForm,
-          })
-          this.$router.push(`/complete/${this.$route.params.code}`)
-        }
-      });
-    },
-    getNowTime () {
-      let hour = new Date().getHours()
-      let min = Math.ceil(new Date().getMinutes() / 15) * 15
-      if (min === 60) {
-        min = 0
-        hour++
-      }
-      if (hour === 24) hour = 0
-      hour = hour >= 10 ? `${hour}` : `0${hour}`
-      min = min >= 10 ? `${min}` : `0${min}`
+        if (! valid) return
 
-      return `${hour}:${min}`
+        if (this.save)  ls.set('survey', this.surveyForm) 
+        
+        await this.SetInfo({
+          code: this.$route.params.code,
+          ...this.surveyForm,
+        })
+
+        this.$router.push(`/complete/${this.$route.params.code}`)
+      })
+    },
+
+    // 生成人數數量選項
+    getNowTime () {
+      return nowHoursMinutes()
     },
   },
 
@@ -192,11 +190,12 @@ export default {
     if (ls.get('survey')) {
       this.$router.push(`/fast/${this.$route.params.code}`)
     }
+
     this.surveyForm.fillTime = this.getNowTime()
     this.CheckShop(this.$route.params.code)
     this.genPeopleNumberOptions()
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

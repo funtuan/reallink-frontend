@@ -40,6 +40,17 @@
       <a href="https://github.com/funtuan">github.com/FunTuan</a>
       <DashedLine />
     </section>
+    <p class="main-title ">開源專案</p>
+    <section class="_section">
+      <div class="work-type">Backend</div>
+      <a href="https://github.com/funtuan/reallink-backend">reallink-backend</a>
+      <DashedLine />
+    </section>
+    <section class="_section">
+      <div class="work-type">Frontend</div>
+      <a href="https://github.com/funtuan/reallink-frontend">reallink-frontend</a>
+      <DashedLine />
+    </section>
 
     <p class="main-title ">贊助</p>
     <section class="_section">
@@ -55,22 +66,9 @@ import DashedLine from '@/components/DashedLine'
 export default {
   name: "Contributes",
   components: {DashedLine},
-  data: () => ({
-  }),
-  methods: {
-
-  }
-};
-</script>
-<style>
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
 }
-</style>
+</script>
+
 <style scoped lang="scss">
 .test {
   display: flex;

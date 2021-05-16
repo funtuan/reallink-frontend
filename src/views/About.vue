@@ -85,6 +85,7 @@ export default {
     page: 0,
     imgName: ["virus", "shield", "solution"]
   }),
+
   methods: {
       changeSection(index) {
           this.page = index
@@ -92,15 +93,7 @@ export default {
   }
 };
 </script>
-<style>
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 18px;
-  opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
-}
-</style>
+
 <style scoped lang="scss">
 .test {
   display: flex;

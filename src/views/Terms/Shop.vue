@@ -61,17 +61,20 @@ export default {
   name:'Terms',
   computed: {
   },
+  
   data: () => ({
     isCustomer: true,
     termsContent: null,
     agree: true,
   }),
+
   created() {
     if (ls.get('shopTerms')) {
       // this.$router.push(`/shop-signup`)
     }
     // this.CheckShop(this.$route.params.code)
   },
+
   methods: {
     goSurvey() {
       if (this.agree) {
@@ -84,9 +87,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
 
-</style>
 <style scoped lang="scss">
 .terms-content{
   color: $primary-grey;

@@ -28,16 +28,14 @@
 <script>
 import DashedLine from '@/components/DashedLine'
 import QrcodeVue from 'qrcode.vue'
+
 export default {
   name: "Ibon",
   components: { QrcodeVue, DashedLine }
-};
+}
 </script>
-<style lang="scss">
-</style>
 
 <style scoped lang="scss">
-
 .qrcode-section {
   padding-bottom: 20px;
   .qrcode-container {

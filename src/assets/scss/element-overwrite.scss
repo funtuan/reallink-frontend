@@ -1,0 +1,38 @@
+.el-input {
+    // border: solid 1.5px $primary-green;
+    border-radius: 12px;
+    height: 40px !important;
+    background: $tertiary-grey;
+  }
+  
+  
+  // button overwrite
+  .el-button:focus {
+    color: white !important;
+    background: $primary-green !important;
+  }
+  
+  .el-button:hover {
+    color: white !important;
+    background: $primary-green !important;
+  }
+  
+  // input overwrite
+  .el-input__inner {
+    border: none;
+    border-radius: 12px !important;
+    background: $tertiary-grey;
+  }
+  
+  .el-input__inner:focus {
+    border: solid 1.5px $primary-green;
+  }
+
+// carousel
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 18px;
+    opacity: 0.75;
+    line-height: 300px;
+    margin: 0;
+  }

@@ -63,6 +63,7 @@
           <el-input v-model="signupForm.contactEmail" placeholder="負責人E-mail"></el-input>
         </el-form-item>
       </el-form-item>
+      <p class="min-note">提醒您！信箱將用作驗證身份及發送後台連結</p>
       <div style="height: 14px;"></div>
       <div class="_bottom-box">
         <el-button plain class="_next-btn" @click="send">送出</el-button>
@@ -79,6 +80,7 @@ import { mapActions } from 'vuex'
 
 export default {
   name: "ShopSignup",
+
   data: () => ({
     cities: [],
     signupForm: {
@@ -90,6 +92,7 @@ export default {
       contactPhone: '',
       contactEmail: '',
     },
+
     rules: {
       name: [
         { required: true, message: "請輸入店家名稱", trigger: "blur" },
@@ -110,6 +113,7 @@ export default {
     }
 
   }),
+
   computed: {
     areas () {
       if (this.signupForm.city === '') {
@@ -118,20 +122,24 @@ export default {
       return zip.filter(one => one.city === this.signupForm.city).map(one => one.area)
     },
   },
+
   created () {
     for (const one of zip) {
       if (!(this.cities.includes(one.city))) {
         this.cities.push(one.city)
       }
     }
-    if (!ls.get('shopTerms')) {
+
+    if (! ls.get('shopTerms')) {
       this.$router.push(`/shopTerm`)
     }
   },
+  
   methods: {
     ...mapActions([
       'SetLoading',
     ]),
+
     async send() {
       this.$refs.form.validate(async valid => {
         if (valid) {
@@ -140,14 +148,14 @@ export default {
             ...this.signupForm,
             address: `${this.signupForm.city}${this.signupForm.area}${this.signupForm.address}`
           })
-          console.log('shop', shop)
-          this.$router.push(`/download/${shop.code}`)
+
+          this.$router.push(`/download/${shop.code}/${shop.secret}`)
           this.SetLoading(false)
         }
-      });
+      })
     },
   }
-};
+}
 </script>
 
 
@@ -155,5 +163,11 @@ export default {
 .main-title {
   margin-top: 6px;
   margin-bottom: -2px;
+}
+
+.min-note {
+  color: $primary-green;
+  font-weight: 500;
+  font-size: 14px;
 }
 </style>

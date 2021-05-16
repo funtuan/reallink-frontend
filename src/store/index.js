@@ -19,23 +19,29 @@ export default new Vuex.Store({
     info: null,
     fullscreenLoading: false,
   },
+
   mutations: {
     SET_PEM: (state, pem) => {
       state.pem = pem
     },
+    
     SET_SHOP: (state, shop) => {
       state.shop = shop
     },
+
     CLEAR_SHOP: (state) => {
       state.shop = null
     },
+
     SET_INFO: (state, info) => {
       state.info = info
     },
+
     SET_LOADING: (state, status) => {
       state.fullscreenLoading = status
     },
   },
+
   actions: {
     async CheckShop({ commit, state }, code) {
       commit('SET_LOADING', true)
@@ -52,21 +58,26 @@ export default new Vuex.Store({
       }
       commit('SET_LOADING', false)
     },
+
     async SetInfo({ commit, state }, info) {
       commit('SET_LOADING', true)
+      
       let pem = state.pem
       if (!pem) {
         pem = (await pemFindOne()).infoPublicKey
         commit('SET_PEM', pem)
       }
+
       await record({
         code: info.code,
         info: encrypt(pem, info),
         goAt: `${info.day} ${info.fillTime}`,
       })
+      
       commit('SET_INFO', info)
       commit('SET_LOADING', false)
     },
+
     async SetLoading ({ commit }, status) {
       commit('SET_LOADING', status)
     }
