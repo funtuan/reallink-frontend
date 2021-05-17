@@ -141,7 +141,7 @@ export default {
     rules: {
       name: [
         { required: true, message: "請填寫稱呼", trigger: "blur" },
-        { min: 2, max: 10, message: "長度需在 2 到 10 字之間", trigger: "blur" }
+        { min: 2, max: 40, message: "長度需在 2 到 40 字之間", trigger: "blur" }
       ],
       phone: [
         { required: true, message: "請填寫電話", trigger: "blur" },
