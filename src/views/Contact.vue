@@ -74,13 +74,13 @@ export default {
 .contact-title {
   color: $secondary-grey;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .contact-content {
     color: $primary-grey;
     padding: 10px 0;
-    font-size: 12px;
+    font-size: 13px;
   text-indent: 28px;
   text-align: justify;
 }
