@@ -16,6 +16,7 @@
     "node-rsa": "^1.1.1",
     "qrcode": "^1.4.4",
     "qrcode.vue": "^1.7.0",
+    "uuid": "^8.3.2",
     "vue": "^2.6.11",
     "vue-html2pdf": "^1.8.0",
     "vue-router": "^3.2.0",

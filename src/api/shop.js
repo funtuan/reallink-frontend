@@ -30,10 +30,12 @@ export const record = async ({
   code,
   info,
   goAt,
+  uuid,
 }) => {
   const res = await axios.post(`${configuration('backendHost')}/api/shop/${code}/record`, {
     info,
     goAt,
+    uuid,
   })
   return res.data
 }

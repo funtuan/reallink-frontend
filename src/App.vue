@@ -7,6 +7,8 @@
 
 <script>
 import { mapState } from 'vuex'
+import ls from 'local-storage'
+import { v4 as uuidv4 } from 'uuid';
 import NavBar from '@/components/NavBar'
 export default {
   name: 'App',
@@ -15,6 +17,11 @@ export default {
     ...mapState([
       'fullscreenLoading',
     ]),
+  },
+  created() {
+    if (!ls.get('uuid')) {
+      ls.set('uuid', uuidv4())
+    }
   },
 }
 </script>
