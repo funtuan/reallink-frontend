@@ -7,6 +7,8 @@
       <a :href="link" target="_blank">{{ link }}</a>
     </section>
 
+    <hr />
+
     <section class="_section">
       <p class="_section-sub-title">步驟一</p>
       <div>
@@ -27,10 +29,12 @@
       </div>
     </section>
 
+    <hr />
+
     <section class="_section">
-      <p class="_section-sub-title">填寫進度確認</p>
+      <p class="_section-sub-title">步驟三</p>
       <div>
-        <a :href="`/dashboard/${$route.params.code}/${$route.params.secret}`">查看填寫進度</a>
+        可前往查看 <a :href="`/dashboard/${$route.params.code}/${$route.params.secret}`">後台填寫筆數進度</a>，確認實聯制填寫狀況
       </div>
     </section>
 
