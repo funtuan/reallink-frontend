@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import ls from 'local-storage'
 import encrypt from '@/unit/encrypt'
 
 import {
@@ -72,6 +73,7 @@ export default new Vuex.Store({
         code: info.code,
         info: encrypt(pem, info),
         goAt: `${info.day} ${info.fillTime}`,
+        uuid: ls.get('uuid')
       })
       
       commit('SET_INFO', info)

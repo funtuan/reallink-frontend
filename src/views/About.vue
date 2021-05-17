@@ -75,22 +75,32 @@
         </div>
       </div>
     </section>
+    <div class="uuid">
+      您裝置的 uuid<br>
+      {{uuid}}
+    </div>
   </div>
 </template>
 
 <script>
+import ls from 'local-storage'
+
 export default {
   name: "About",
   data: () => ({
     page: 0,
-    imgName: ["virus", "shield", "solution"]
+    imgName: ["virus", "shield", "solution"],
+    uuid: null
   }),
 
   methods: {
       changeSection(index) {
           this.page = index
       }
-  }
+  },
+  created () {
+    this.uuid = ls.get('uuid')
+  },
 };
 </script>
 
@@ -113,5 +123,11 @@ export default {
   .sub-content {
     margin-left: 16px;
   }
+}
+
+.uuid {
+  margin-top: 50px;
+  font-size: 12px;
+  color: #aaa;
 }
 </style>
