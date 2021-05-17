@@ -50,12 +50,17 @@ export default new Vuex.Store({
       if (!state.pem) {
         commit('SET_PEM', (await pemFindOne()).infoPublicKey)
       }
-      if (!state.shop) {
-        commit('SET_SHOP', await shopFindOne(code))
-      }
-      if (state.shop && state.shop.code !== code) {
-        commit('CLEAR_SHOP')
-        commit('SET_SHOP', await shopFindOne(code))
+      try {
+        if (!state.shop) {
+          commit('SET_SHOP', await shopFindOne(code))
+        }
+        if (state.shop && state.shop.code !== code) {
+          commit('CLEAR_SHOP')
+          commit('SET_SHOP', await shopFindOne(code))
+        }
+      } catch (error) {
+        alert('連結錯誤：查無此店家ID')
+        location.href = '/'
       }
       commit('SET_LOADING', false)
     },
