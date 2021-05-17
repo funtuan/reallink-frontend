@@ -24,13 +24,19 @@
     </section>
 
     <section class="_section">
-      <div class="contact-title">我是疫調人員，該如何聯絡？</div>
+      <div class="contact-title">我是疫調人員，平台能如何協助我？</div>
       <div class="contact-content">
-        <div>
-          疫調資料存取採用高規格安全憑證，確保傳輸過程中不會被竊取、竄改、毀損、滅失或洩漏，以最高安全等級保護店家與顧客資料。衛生福利部機關如要求店家提供在感染風險期間蒞臨的客人名單，方便追蹤疫調使用，本網站有責任協助衛生主管機關防堵疫情蔓延。
+        <div class="sub-title">
+          ㄧ、配合疫調需求，提供實聯制填寫資訊
         </div>
         <div>
-          如果您為衛生機關疫調人員，有任何需求請來信 service@twlink.app
+          需來信 service@twlink.app，告知平台店家名稱、平台店家編號、疫調之期間段、代表疫調政府單位、單位聯絡人及聯絡方式
+        </div><br>
+        <div class="sub-title">
+          二、配合疫調需求，提供用戶曾經前往過店家實聯制足跡
+        </div>
+        <div>
+          需來信 service@twlink.app，告知確診者在平台去識別化 uuid 編號（於關於頁面查看）、疫調之期間段、代表疫調政府單位、單位聯絡人及聯絡方式
         </div>
 </div>
       <DashedLine />
@@ -62,5 +68,11 @@ export default {
     font-size: 12px;
   text-indent: 28px;
   text-align: justify;
+}
+
+.sub-title {
+  text-indent: 0;
+  font-weight: 500;
+  margin-bottom: 10px;
 }
 </style>
