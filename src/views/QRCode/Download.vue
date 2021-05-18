@@ -4,7 +4,7 @@
 
     <section class="_section">
       <p class="_section-sub-title">已生成問卷連結</p>
-      <a :href="link" target="_blank">{{ link }}</a>
+      <a class="survey-link" :href="link" target="_blank">{{ link }}</a>
     </section>
 
     <hr />
@@ -67,10 +67,10 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import ShopInfo from "@/components/ShopInfo";
-import ShopPostPdf from "@/components/ShopPostPdf";
-import configuration from "@/configuration";
+import { mapState, mapActions } from "vuex"
+import ShopInfo from "@/components/ShopInfo"
+import ShopPostPdf from "@/components/ShopPostPdf"
+import configuration from "@/configuration"
 // import VueQrcode from 'vue-qrcode'
 
 export default {
@@ -81,7 +81,7 @@ export default {
   computed: {
     ...mapState(["shop", "info"]),
     link() {
-      return `${configuration("frontendHost")}/t/${this.shop.code}`;
+      return `${configuration("frontendHost")}/t/${this.shop.code}`
     }
   },
 
@@ -94,25 +94,25 @@ export default {
     ...mapActions(["CheckShop", "SetInfo"]),
 
     uploadResponse({ code }) {
-      this.$router.push(`/ibon/${code}`);
+      this.$router.push(`/ibon/${code}`)
     },
 
     goibon() {
       if (!this.run) {
-        this.$refs.shopPostPdf.generateReport();
-        this.run = true;
+        this.$refs.shopPostPdf.generateReport()
+        this.run = true
       }
     },
 
     downloadPDF() {
-      this.$refs.showShopPostPdf.generateReport();
+      this.$refs.showShopPostPdf.generateReport()
     }
   },
 
   mounted() {
-    this.CheckShop(this.$route.params.code);
+    this.CheckShop(this.$route.params.code)
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -125,7 +125,9 @@ export default {
 .highlight {
   color: $primary-green;
 }
+
 a {
     color: $primary-green;
+    line-break: anywhere;
 }
 </style>
