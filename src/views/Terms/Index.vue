@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import smsLink from 'sms-link'
+// import smsLink from 'sms-link'
 import { mapState, mapActions } from 'vuex'
 import ls from 'local-storage'
 import ShopInfo from '@/components/ShopInfo'
@@ -93,12 +93,13 @@ export default {
         alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
         // ls.set('unSupport', true)
       }, 500);
+      window.location = 'sms://1922?&body=場所代碼：xxxxxxxx'
       
-      try {
-        smsLink({phone: '1922', body: '111121314151617 1231232'})
-      } catch (error) {
-        console.log(error)
-      }
+      // try {
+      //   smsLink({phone: '1922', body: '111121314151617 1231232'})
+      // } catch (error) {
+      //   console.log(error)
+      // }
     }
     // }
 
