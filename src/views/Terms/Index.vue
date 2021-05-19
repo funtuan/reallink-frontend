@@ -97,12 +97,8 @@ export default {
             alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
             // ls.set('unSupport', true)
           }, 500); */
-          if (useAndroid) {
-          window.location = 'sms://1922?&body=場所代碼：111121314151617%2012345123%20本次實聯簡訊限防疫目的使用。'
-          }
-          if (useIOS) {
           window.location = 'sms:1922&body=場所代碼：111121314151617%2012345123%20本次實聯簡訊限防疫目的使用。'
-          }
+          
         }
       } catch (error) {
         console.log(error)
