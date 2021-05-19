@@ -92,7 +92,7 @@ export default {
     const useIOS = navigator.userAgent.match(/iPhone/i)
     if (useAndroid || useIOS) {
       try {
-        const data = await this.$confirm('是否使用簡訊進行實聯制？')
+        const data = await this.$confirm('是否使用簡訊進行實聯制？\n（將跳過台灣加密型實聯制）')
         console.log('data', data)
         if (data === 'confirm') {
           /* setTimeout(() => { 
