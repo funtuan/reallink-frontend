@@ -91,10 +91,10 @@ export default {
       const data = await this.$confirm('是否使用簡訊進行實聯制？')
       console.log('data', data)
       if (data === 'confirm') {
-        setTimeout(() => { 
+        /* setTimeout(() => { 
           alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
           // ls.set('unSupport', true)
-        }, 500);
+        }, 500); */
         window.location = 'sms://1922?&body=場所代碼：111121314151617 12345123 本次實聯簡訊限防疫目的使用。'
       }
     } catch (error) {
