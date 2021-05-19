@@ -99,12 +99,12 @@ export default {
             alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
             // ls.set('unSupport', true)
           }, 500); */ 
-          const id = converter.hexToDec(md5('2ALT91Q3'))
+          const id = converter.hexToDec(md5('2ALT91Q3'))%10000000000
           if (useAndroid) {
-              location.href = `sms:1922?body=場所代碼：111121314151617${id}%20本次實聯簡訊限防疫目的使用。`
+              location.href = `sms:1922?body=場所代碼：205884438422227${id}%20本次實聯簡訊限防疫目的使用。`
           } else {
               // iOS
-              location.href = `sms:1922&body=場所代碼：111121314151617${id}%20本次實聯簡訊限防疫目的使用。`
+              location.href = `sms:1922&body=場所代碼：205884438422227${id}%20本次實聯簡訊限防疫目的使用。`
           }
           
         }
