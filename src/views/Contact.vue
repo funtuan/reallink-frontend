@@ -3,6 +3,30 @@
 
     <p class="main-title ">相關問題 Q&A</p>
     <section class="_section">
+      <div class="contact-title">我是店家，該如何確認使用者完成登記？</div>
+      <div class="contact-content">
+        <div>若民眾使用「1922簡訊實聯制」登錄，請民眾出示簡訊發送畫面，確認已發送至 1922 實聯制簡訊</div>
+        <div>若民眾使用「台灣加密型實聯制」登錄，請民眾出示「填寫完成，已對資料進行加密」畫面</div>
+      </div>
+      <DashedLine />
+    </section>
+    <section class="_section">
+      <div class="contact-title">我是店家，能查看使用者哪些資料？</div>
+      <div class="contact-content">
+        <div>使用者資訊經公鑰加密處理存於資料庫，非疫調需求，是不會使用私鑰解密的，故後台僅能查看期間登記筆數資訊、即時登記狀況（僅包含新增時間），並無法得知使用者稱呼、電話等資訊。</div>
+      </div>
+      <DashedLine />
+    </section>
+    <section class="_section">
+      <div class="contact-title">我是店家，需要額外申請「1922簡訊實聯制」的店家代碼嗎？</div>
+      <div class="contact-content">
+        <div>本平台於 g0v 參與實聯制功能開發，於 5/19 同步疾病管制署發布，完成「1922簡訊實聯制」功能串接；店家代碼將依據平台店號自動產生，不須額外申請，使用「台灣加密型實聯制」店家可直接使用。</div>
+      </div>
+      <DashedLine />
+    </section>
+
+
+    <section class="_section">
       <div class="contact-title">註冊時未收到店家後台連結或連結遺失？</div>
       <div class="contact-content">
         <div>請以註冊時登記信箱來信 service@twlink.app，告知需補發店家後台連結，並提供平台店家店名、平台店家店號，客服將為您處理</div>
