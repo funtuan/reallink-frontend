@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import smsLink from 'sms-link'
 import { mapState, mapActions } from 'vuex'
 import ls from 'local-storage'
 import ShopInfo from '@/components/ShopInfo'
@@ -93,7 +94,12 @@ export default {
           ls.set('smsFaild', true)
         }, 500);
         
-        window.location = 'SMSTO:1922:111121314151617 1231232'
+        try {
+          smsLink({phone: '1922', body: '111121314151617 1231232'})
+        } catch (error) {
+          console.log(error)
+        }
+        // window.location = 'SMSTO:1922:111121314151617 1231232'
       }
     }
 
