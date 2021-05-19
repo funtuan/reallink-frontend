@@ -27,7 +27,7 @@
 
 
     <section class="_section">
-      <div class="contact-title">註冊時未收到店家後台連結或連結遺失？</div>
+      <div class="contact-title">我是店家，註冊後未收到後台連結或連結遺失？</div>
       <div class="contact-content">
         <div>請以註冊時登記信箱來信 service@twlink.app，告知需補發店家後台連結，並提供平台店家店名、平台店家店號，客服將為您處理</div>
       </div>
@@ -35,7 +35,7 @@
     </section>
     
     <section class="_section">
-      <div class="contact-title">店家資訊填寫錯誤？</div>
+      <div class="contact-title">我是店家，店家資訊填寫錯誤？</div>
       <div class="contact-content">
         <div>若店家尚未開始使用，建議直接重新註冊即可．若已開始使用，請以註冊時登記信箱來信 service@twlink.app，告知需更改的店家資訊，並提供平台店家店名、平台店家店號，客服將為您處理</div>
       </div>
