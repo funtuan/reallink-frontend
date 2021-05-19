@@ -13,7 +13,6 @@
         pdf-orientation="portrait"
         pdf-content-width="660px"
  
-        @progress="onProgress($event)"
         @hasStartedGeneration="hasStartedGeneration()"
         @hasGenerated="hasGenerated($event)"
         @hasDownloaded="hasDownloaded"
@@ -89,10 +88,12 @@ export default {
     ...mapActions([
       'SetLoading',
     ]),
+    
     generateReport () {
       this.SetLoading(true)
       this.$refs.html2Pdf.generatePdf()
     },
+
     async hasDownloaded(blob) {
       this.$refs.html2Pdf.closePreview()
       if (this.uploadMod) {
@@ -100,7 +101,7 @@ export default {
         this.$emit('uploadResponse', data)
       }
       this.SetLoading(false)
-    }
+    },
   },
 
   components: {

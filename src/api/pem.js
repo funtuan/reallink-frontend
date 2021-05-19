@@ -1,7 +1,10 @@
-import axios from 'axios';
-import configuration from '@/configuration';
+import { api } from '../api/instance'
 
 export const findOne = async () => {
-  const res = await axios.get(`${configuration('backendHost')}/api/pem`)
+  const res = await api ({
+    method: 'get',
+    url: 'pem'
+  })
+  
   return res.data
 }

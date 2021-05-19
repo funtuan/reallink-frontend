@@ -4,8 +4,10 @@
 
     <section class="_section">
       <p class="_section-sub-title">已生成問卷連結</p>
-      <a :href="link" target="_blank">{{ link }}</a>
+      <a class="survey-link" :href="link" target="_blank">{{ link }}</a>
     </section>
+
+    <hr />
 
     <section class="_section">
       <p class="_section-sub-title">步驟一</p>
@@ -27,10 +29,12 @@
       </div>
     </section>
 
+    <hr />
+
     <section class="_section">
-      <p class="_section-sub-title">填寫進度確認</p>
+      <p class="_section-sub-title">步驟三</p>
       <div>
-        <a :href="`/dashboard/${$route.params.code}/${$route.params.secret}`">查看填寫進度</a>
+        可前往查看 <a :href="`/dashboard/${$route.params.code}/${$route.params.secret}`">後台填寫筆數進度</a>，確認實聯制填寫狀況
       </div>
     </section>
 
@@ -63,10 +67,10 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
-import ShopInfo from "@/components/ShopInfo";
-import ShopPostPdf from "@/components/ShopPostPdf";
-import configuration from "@/configuration";
+import { mapState, mapActions } from "vuex"
+import ShopInfo from "@/components/ShopInfo"
+import ShopPostPdf from "@/components/ShopPostPdf"
+import configuration from "@/configuration"
 // import VueQrcode from 'vue-qrcode'
 
 export default {
@@ -77,7 +81,7 @@ export default {
   computed: {
     ...mapState(["shop", "info"]),
     link() {
-      return `${configuration("frontendHost")}/t/${this.shop.code}`;
+      return `${configuration("frontendHost")}/t/${this.shop.code}`
     }
   },
 
@@ -90,25 +94,25 @@ export default {
     ...mapActions(["CheckShop", "SetInfo"]),
 
     uploadResponse({ code }) {
-      this.$router.push(`/ibon/${code}`);
+      this.$router.push(`/ibon/${code}`)
     },
 
     goibon() {
       if (!this.run) {
-        this.$refs.shopPostPdf.generateReport();
-        this.run = true;
+        this.$refs.shopPostPdf.generateReport()
+        this.run = true
       }
     },
 
     downloadPDF() {
-      this.$refs.showShopPostPdf.generateReport();
+      this.$refs.showShopPostPdf.generateReport()
     }
   },
 
   mounted() {
-    this.CheckShop(this.$route.params.code);
+    this.CheckShop(this.$route.params.code)
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -121,7 +125,9 @@ export default {
 .highlight {
   color: $primary-green;
 }
+
 a {
     color: $primary-green;
+    line-break: anywhere;
 }
 </style>
