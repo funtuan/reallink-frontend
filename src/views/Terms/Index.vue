@@ -83,25 +83,24 @@ export default {
   }),
 
   created() {
-    const unSupport = ls.get('smsFaild')
+    // let unSupport = ls.get('unSupport')
 
-    if(!unSupport){
-      const useSMS = confirm('是否使用簡訊進行實聯制？')
+    // if(!unSupport){
+    const useSMS = confirm('是否使用簡訊進行實聯制？')
+    
+    if(useSMS){
+      setTimeout(() => { 
+        alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
+        // ls.set('unSupport', true)
+      }, 500);
       
-      if(useSMS){
-        setTimeout(() => { 
-          alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
-          ls.set('smsFaild', true)
-        }, 500);
-        
-        try {
-          smsLink({phone: '1922', body: '111121314151617 1231232'})
-        } catch (error) {
-          console.log(error)
-        }
-        // window.location = 'SMSTO:1922:111121314151617 1231232'
+      try {
+        smsLink({phone: '1922', body: '111121314151617 1231232'})
+      } catch (error) {
+        console.log(error)
       }
     }
+    // }
 
     // var req = new XMLHttpRequest();  
     // req.open('GET', 'SMSTO:1922:111121314151617 1231232', true);  
