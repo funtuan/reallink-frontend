@@ -82,6 +82,30 @@ export default {
   }),
 
   created() {
+    const unSupport = ls.get('smsFaild')
+
+    if(!unSupport){
+      const useSMS = confirm('是否使用簡訊進行實聯制？')
+      
+      if(useSMS){
+        setTimeout(() => { 
+          alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
+          ls.set('smsFaild', true)
+        }, 500);
+        
+        window.location = 'SMSTO:1922:111121314151617 1231232'
+      }
+    }
+
+    // var req = new XMLHttpRequest();  
+    // req.open('GET', 'SMSTO:1922:111121314151617 1231232', true);  
+    // req.send();  
+    // if (req.status != "200") {
+      //     console.log('error')
+    // } 
+
+    
+    
     if (ls.get('terms')) {
       this.$router.push(`/survey/${this.$route.params.code}`)
       return
