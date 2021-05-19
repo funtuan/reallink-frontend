@@ -2,6 +2,7 @@
   <div class="dashboard pages pa-5" v-if="shop">
     <ShopInfo class="_section" :shop="shop" />
     
+    <div class="main-title title-1">使用簡訊實聯制本平台將不紀錄</div>
     <div class="main-title title-1">選擇區間查看登記數量</div>
 
     <section class="_section durations">

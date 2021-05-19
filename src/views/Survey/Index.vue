@@ -1,6 +1,7 @@
 <template>
   <div class="survey pages pa-5" v-if="shop">
     <ShopInfo class="_section" :shop="shop" />
+    <SMSLink class="_section" />
 
     <el-form
       ref="form"

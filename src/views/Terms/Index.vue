@@ -63,6 +63,9 @@
 </template>
 
 <script>
+// import smsLink from 'sms-link'
+import md5 from 'md5';
+import converter from 'hex2dec';
 import { mapState, mapActions } from 'vuex'
 import ls from 'local-storage'
 import ShopInfo from '@/components/ShopInfo'
@@ -81,7 +84,45 @@ export default {
     agree: true,
   }),
 
-  created() {
+  async created() {
+    // let unSupport = ls.get('unSupport')
+
+    // if(!unSupport){
+    const useAndroid = navigator.userAgent.match(/Android/i)
+    const useIOS = navigator.userAgent.match(/iPhone/i)
+    if (useAndroid || useIOS) {
+      try {
+        const data = await this.$confirm('是否使用簡訊進行實聯制？ ＊將發送至 1922 跳過台灣加密型實聯制')
+        console.log('data', data)
+        if (data === 'confirm') {
+          /* setTimeout(() => { 
+            alert('抱歉，此裝置不支援此功能，請使用台灣加密型實聯制')
+            // ls.set('unSupport', true)
+          }, 500); */ 
+          const id = converter.hexToDec(md5('2ALT91Q3'))%10000000000
+          if (useAndroid) {
+              location.href = `sms:1922?body=場所代碼：205884438422227${id}%20經由台灣加密型實聯制發送限防疫目的使用。`
+          } else {
+              // iOS
+              location.href = `sms:1922&body=場所代碼：205884438422227${id}%20經由台灣加密型實聯制發送限防疫目的使用。`
+          }
+          
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // }
+
+    // var req = new XMLHttpRequest();  
+    // req.open('GET', 'SMSTO:1922:111121314151617 1231232', true);  
+    // req.send();  
+    // if (req.status != "200") {
+      //     console.log('error')
+    // } 
+
+    
+    
     if (ls.get('terms')) {
       this.$router.push(`/survey/${this.$route.params.code}`)
       return

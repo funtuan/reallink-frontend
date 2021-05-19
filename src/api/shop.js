@@ -1,6 +1,4 @@
-
-import axios from 'axios';
-import configuration from '@/configuration';
+import {shop, dashborad} from '../api/instance'
 
 export const create = async ({
   name,
@@ -10,21 +8,32 @@ export const create = async ({
   contactPhone,
   contactEmail,
 }) => {
-  const res = await axios.post(`${configuration('backendHost')}/api/shop`, {
-    name,
-    phone,
-    address,
-    contactName,
-    contactPhone,
-    contactEmail,
+  const res = await shop ({
+    method: 'post',
+    url: '/',
+    data: {
+      name,
+      phone,
+      address,
+      contactName,
+      contactPhone,
+      contactEmail,
+    }
   })
+
   return res.data
 }
 
+
 export const findOne = async (code) => {
-  const res = await axios.get(`${configuration('backendHost')}/api/shop/${code}`)
+  const res = await shop ({
+    method: 'get',
+    url: `/${code}`,
+  })
+
   return res.data
 }
+
 
 export const record = async ({
   code,
@@ -32,40 +41,53 @@ export const record = async ({
   goAt,
   uuid,
 }) => {
-  const res = await axios.post(`${configuration('backendHost')}/api/shop/${code}/record`, {
-    info,
-    goAt,
-    uuid,
+  const res = await shop ({
+    method: 'post',
+    url: `/${code}/record`,
+    data:{
+      info,
+      goAt,
+      uuid,  
+    }
   })
+
   return res.data
 }
 
+// 取得 昨日/本周/本月 總筆數計算
 export const durationCount = async ({
   code,
   secret,
   start,
   end,
 }) => {
-  const res = await axios.get(`${configuration('backendHost')}/api/dashbroad/total`, {
+  const res = await dashborad ({
+    method: 'get',
+    url: '/total',
     params:{
       code,
       secret,
       start,
-      end,
+      end, 
     }
   })
+
   return res.data
 }
 
+// 取得今日最新五筆資料
 export const todayRecent = async ({
   code,
   secret,
 }) => {
-  const res = await axios.get(`${configuration('backendHost')}/api/dashbroad/today`, {
+  const res = await dashborad ({
+    method: 'get',
+    url: '/today',
     params:{
       code,
       secret,
     }
   })
+
   return res.data
 }

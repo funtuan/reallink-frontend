@@ -182,7 +182,7 @@ $primary-radius: 12px;
 
 .pages{
   padding-top: 80px;
-  padding-bottom: 60px;
+  padding-bottom: 120px;
 }
 
 .active {
@@ -197,4 +197,12 @@ $primary-radius: 12px;
 .content {
     color: $primary-grey;
     padding: 10px 0;
+}
+
+a {
+  color: skyblue;
+}
+
+.el-message-box {
+  width: 290px !important;
 }
