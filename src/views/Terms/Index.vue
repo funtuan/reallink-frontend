@@ -64,11 +64,14 @@
 
 <script>
 // import smsLink from 'sms-link'
-import md5 from 'md5';
-import converter from 'hex2dec';
+import md5 from 'md5'
+import converter from 'hex2dec'
 import { mapState, mapActions } from 'vuex'
 import ls from 'local-storage'
 import ShopInfo from '@/components/ShopInfo'
+import {
+  baseId,
+} from '@/config/sms';
 
 export default {
   name:'Terms',
@@ -101,10 +104,10 @@ export default {
           }, 500); */ 
           const id = converter.hexToDec(md5(this.$route.params.code).slice(0, 10))%10000000000
           if (useAndroid) {
-              location.href = `sms:1922?body=場所代碼：205884438422227${id}%20經由台灣加密型實聯制發送限防疫目的使用。`
+              location.href = `sms:1922?body=場所代碼：${baseId}${id}%20經由台灣加密型實聯制發送限防疫目的使用。`
           } else {
               // iOS
-              location.href = `sms:1922&body=場所代碼：205884438422227${id}%20經由台灣加密型實聯制發送限防疫目的使用。`
+              location.href = `sms:1922&body=場所代碼：${baseId}${id}%20經由台灣加密型實聯制發送限防疫目的使用。`
           }
           
         }
