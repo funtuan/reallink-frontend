@@ -15,7 +15,7 @@
           店家編號輸入錯誤
         </div>
         <div class="shop-content" v-if="placeNum">
-          場地編號：{{placeNum}}
+          場所代碼：{{placeNum}}
         </div>
       </div>
   </div>

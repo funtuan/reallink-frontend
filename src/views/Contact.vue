@@ -80,7 +80,14 @@
 </div>
       <DashedLine />
     </section>
-
+     <section class="_section">
+      <div class="contact-title">我是疫調人員，該如何知道店家的「1922簡訊實聯制」場所代碼?</div>
+      <div class="contact-content">
+        <div>請點選<a href="/Shopcode ">代碼查詢</a>，輸入該店在「台灣加密型實聯制」的店家編號，
+             查詢結果即是「1922簡訊實聯制」的場所代碼</div>
+      </div>
+      <DashedLine />
+    </section>
 
   </div>
 </template>
