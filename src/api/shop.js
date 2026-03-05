@@ -66,9 +66,11 @@ export const durationCount = async ({
     url: '/total',
     params:{
       code,
-      secret,
       start,
-      end, 
+      end,
+    },
+    headers: {
+      Authorization: `Bearer ${secret}`,
     }
   })
 
@@ -85,7 +87,9 @@ export const todayRecent = async ({
     url: '/today',
     params:{
       code,
-      secret,
+    },
+    headers: {
+      Authorization: `Bearer ${secret}`,
     }
   })
 
