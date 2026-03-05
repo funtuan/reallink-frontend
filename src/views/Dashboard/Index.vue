@@ -132,12 +132,16 @@ export default {
   },
   
   async mounted(){
-    const code = this.$route.params.code || 'EJC8LRSP'
-    const secret = this.$route.params.secret || '4K33OPKSRX1P2G5XKMD1'
-    
+    const code = this.$route.params.code
+    const secret = this.$route.params.secret
+
+    if (!code || !secret) {
+      alert('無效的存取連結')
+      this.$router.push('/')
+      return
+    }
+
     this.CheckShop(code)
-    // this.showDuration('day')
-    
     this.showDuration('day')
 
     this.recent = await todayRecent({
